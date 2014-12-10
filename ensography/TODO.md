@@ -3,7 +3,7 @@ Sort of stuff I should do.
 
 [x] static file and grid
 [x] paper and background
-[ ] font stylings
+[x] font stylings
 [ ] userpic styles
 [ ] photo styles (static)
 [ ] app template styles (static)
