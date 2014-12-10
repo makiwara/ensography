@@ -1,8 +1,8 @@
 Sort of stuff I should do.
 ==========================
 
-[ ] static file and grid
-[ ] paper and background
+[x] static file and grid
+[x] paper and background
 [ ] font stylings
 [ ] userpic styles
 [ ] photo styles (static)

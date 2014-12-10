@@ -61,17 +61,52 @@ textarea {
 html, body {
     height: 100%;
     width: 100%;
-    overflow: hidden;
 }
 body {
     background-image: url(/static/img/surface.png);
     background-size: 288px;
 }
 
+.wrapper-main {
+    position: relative;
+    left: 50%;
+    margin-left: -512px;
+}   
+.paper-main {
+    padding: 63px 127px;
+    width: 768px;
+}
+.paper-sheet {
+    background-color: #ffffff;
+    background-image: url(/static/img/paper.png);
+    background-size: 640px;
+    border: 1px solid rgba(255,255,255,0.44);
+    -moz-box-shadow:    0px 1px 4px 0px rgba(0,0,0, 0.125);
+    box-shadow:         0px 1px 4px 0px rgba(0,0,0, 0.125);
+}
+.paper-another {
+    background-image: url(/static/img/paper-another.png);
+}
+.paper-other {
+    background-image: url(/static/img/paper-other.png);
+}
+.paper-lined {
+    background-image: url(/static/img/paper-lined.png);
+    background-size: 1280px;
+}
+.paper-white {
+    background: #fdfdfd;
+    border: 1px solid rgba(255,255,255,1);
+}
+
+
 
 /* ==========================================================================
    Helper classes
    ========================================================================== */
+
+.brick64 { width: 64px; height: 64px;}
+.brick16 { width: 16px; height: 16px;}
 
 
 .g-clear {
