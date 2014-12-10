@@ -1,0 +1,96 @@
+/* TODO */
+@font-face {
+  font-family: 'GloberSemiBold';
+  src:  url('/static/css/fonts/GloberSemiBold.eot?#iefix') format('embedded-opentype'),  
+        url('/static/css/fonts/GloberSemiBold.otf')  format('opentype'),
+        url('/static/css/fonts/GloberSemiBold.woff') format('woff'), 
+        url('/static/css/fonts/GloberSemiBold.ttf')  format('truetype'), 
+        url('/static/css/fonts/GloberSemiBold.svg#GloberSemiBold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #252525; 
+}
+img { display: block }
+
+
+html {
+    padding: 0;
+    margin: 0;
+    overflow: 
+}
+body {
+    font: bold 100px/100px Georgia, Times, serif;
+}
+
+audio,
+canvas,
+img,
+video {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+
+/* ===== Foundation Styles ==================================================
+   ========================================================================== */
+
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+body {
+}
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+
+.g-clear {
+    clear: both;
+    height: 1px; 
+    margin-bottom: -1px;
+}
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix {
+    *zoom: 1;
+}
