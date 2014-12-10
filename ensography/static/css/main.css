@@ -64,6 +64,8 @@ html, body {
     overflow: hidden;
 }
 body {
+    background-image: url(/static/img/surface.png);
+    background-size: 288px;
 }
 
 
