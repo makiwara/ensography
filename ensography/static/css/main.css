@@ -1,16 +1,3 @@
-/* TODO */
-@font-face {
-  font-family: 'GloberSemiBold';
-  src:  url('/static/css/fonts/GloberSemiBold.eot?#iefix') format('embedded-opentype'),  
-        url('/static/css/fonts/GloberSemiBold.otf')  format('opentype'),
-        url('/static/css/fonts/GloberSemiBold.woff') format('woff'), 
-        url('/static/css/fonts/GloberSemiBold.ttf')  format('truetype'), 
-        url('/static/css/fonts/GloberSemiBold.svg#GloberSemiBold') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
-
 html,
 button,
 input,
@@ -130,4 +117,128 @@ body {
 }
 .clearfix {
     *zoom: 1;
+}
+
+
+/* ==========================================================================
+   Typefaces
+   ========================================================================== */
+@font-face {
+  font-family: 'myBaskerville';
+  src:  url('/static/css/fonts/Baskerville.eot?#iefix') format('embedded-opentype'),  
+        url('/static/css/fonts/Baskerville.otf')  format('opentype'),
+        url('/static/css/fonts/Baskerville.woff') format('woff'), 
+        url('/static/css/fonts/Baskerville.ttf')  format('truetype'), 
+        url('/static/css/fonts/Baskerville.svg#Baskerville') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'myBaskerville-Italic';
+  src:  url('/static/css/fonts/Baskerville-Italic.eot?#iefix') format('embedded-opentype'),  
+        url('/static/css/fonts/Baskerville-Italic.otf')  format('opentype'),
+        url('/static/css/fonts/Baskerville-Italic.woff') format('woff'), 
+        url('/static/css/fonts/Baskerville-Italic.ttf')  format('truetype'), 
+        url('/static/css/fonts/Baskerville-Italic.svg#Baskerville-Italic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'myBaskerville-Bold';
+  src:  url('/static/css/fonts/Baskerville-Bold.eot?#iefix') format('embedded-opentype'),  
+        url('/static/css/fonts/Baskerville-Bold.otf')  format('opentype'),
+        url('/static/css/fonts/Baskerville-Bold.woff') format('woff'), 
+        url('/static/css/fonts/Baskerville-Bold.ttf')  format('truetype'), 
+        url('/static/css/fonts/Baskerville-Bold.svg#Baskerville-Bold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'myBaskerville-BoldItalic';
+  src:  url('/static/css/fonts/Baskerville-BoldItalic.eot?#iefix') format('embedded-opentype'),  
+        url('/static/css/fonts/Baskerville-BoldItalic.otf')  format('opentype'),
+        url('/static/css/fonts/Baskerville-BoldItalic.woff') format('woff'), 
+        url('/static/css/fonts/Baskerville-BoldItalic.ttf')  format('truetype'), 
+        url('/static/css/fonts/Baskerville-BoldItalic.svg#Baskerville-BoldItalic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'myHelveticaNeue-Light';
+  src:  url('/static/css/fonts/HelveticaNeue-Light.eot?#iefix') format('embedded-opentype'),  
+        url('/static/css/fonts/HelveticaNeue-Light.otf')  format('opentype'),
+        url('/static/css/fonts/HelveticaNeue-Light.woff') format('woff'), 
+        url('/static/css/fonts/HelveticaNeue-Light.ttf')  format('truetype'), 
+        url('/static/css/fonts/HelveticaNeue-Light.svg#HelveticaNeue-Light') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'myHelveticaNeue-LightItalic';
+  src:  url('/static/css/fonts/HelveticaNeue-LightItalic.eot?#iefix') format('embedded-opentype'),  
+        url('/static/css/fonts/HelveticaNeue-LightItalic.otf')  format('opentype'),
+        url('/static/css/fonts/HelveticaNeue-LightItalic.woff') format('woff'), 
+        url('/static/css/fonts/HelveticaNeue-LightItalic.ttf')  format('truetype'), 
+        url('/static/css/fonts/HelveticaNeue-LightItalic.svg#HelveticaNeue-LightItalic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'myHelveticaNeue-CondensedBold';
+  src:  url('/static/css/fonts/HelveticaNeue-CondensedBold.eot?#iefix') format('embedded-opentype'),  
+        url('/static/css/fonts/HelveticaNeue-CondensedBold.otf')  format('opentype'),
+        url('/static/css/fonts/HelveticaNeue-CondensedBold.woff') format('woff'), 
+        url('/static/css/fonts/HelveticaNeue-CondensedBold.ttf')  format('truetype'), 
+        url('/static/css/fonts/HelveticaNeue-CondensedBold.svg#HelveticaNeue-CondensedBold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.paper-typeface p {
+    padding: 0;
+    margin: 0 0 32px 0;
+    font-family: Baskerville, myBaskerville, serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 32px;
+}   
+.paper-typeface p em {
+    font-family: Baskerville-Italic, myBaskerville-Italic, serif;
+    text-decoration: italic;
+}
+.paper-typeface p strong {
+    font-family: Baskerville-Bold, myBaskerville-Bold, serif;
+    font-weight: bold;
+}
+.paper-typeface p em strong, .paper-typeface p strong em {
+    font-family: Baskerville-BoldItalic, myBaskerville-BoldItalic, serif;
+    text-decoration: italic;
+    font-weight: bold;
+}
+.chrome-label-typeface {
+    font-family: Helvetica Neue, myHelveticaNeue-Light, sans-serif; 
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 32px;
+    color: #767676;
+}
+.chrome-hint-typeface {
+    font-family: Helvetica Neue, myHelveticaNeue-Light, sans-serif; 
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 32px;
+    color: #767676;
+}
+.chrome-text-typeface p {
+    font-family: Helvetica Neue, myHelveticaNeue-Light, sans-serif; 
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 32px;
+    color: #767676;
+    padding: 0;
+    margin: 0 0 32px 0;
+}
+.chrome-text-typeface strong {
+    font-family: HelveticaNeue-CondensedBold, myHelveticaNeue-CondensedBold, sans-serif; 
+    font-weight: bold;
 }
