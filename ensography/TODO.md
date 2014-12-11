@@ -4,8 +4,12 @@ Sort of stuff I should do.
 [x] static file and grid
 [x] paper and background
 [x] font stylings
-[ ] userpic styles
-[ ] photo styles (static)
+[x] userpic styles
+[x] photo styles (static)
+— — — — —
+[ ] plan actual work
+[ ] serverside comments and such
+- - - - - 
 [ ] app template styles (static)
 [ ] discussion styles (static)
 [ ] controls 
@@ -14,6 +18,3 @@ Sort of stuff I should do.
 [ ] dynamic authorship
 [ ] dynamic comments clientside only
 [ ] dynamic photos
-— — — — —
-[ ] plan actual work
-[ ] serverside comments and such

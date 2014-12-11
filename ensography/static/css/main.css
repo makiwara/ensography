@@ -104,6 +104,45 @@ body {
 .userpic-annakot { background-image: url(/static/people/userpic-annakot.png) }
 .userpic-rimanov { background-image: url(/static/people/userpic-rimanov.png) }
 
+.photo-image {
+    background-size: cover;
+    display: table-cell;
+    vertical-align: bottom;
+}   
+.photo-caption {
+    font-size: 16px;
+    line-height: 18px;
+    color: #515151;
+    background: rgba(255,255,255, 1);
+    padding: 7px 2px 2px;
+    margin: -2px;
+}
+.photo {
+    position: absolute;
+    border-radius: 1px;
+    border: 10px solid rgba(255,255,255,1); 
+    background: rgba(255,255,255,1);
+    -moz-box-shadow:    0px 1px 4px 0px rgba(0,0,0, 0.125);
+    box-shadow:         0px 1px 4px 0px rgba(0,0,0, 0.125);
+}
+.photo-rotate-1 {
+    -moz-transform:    rotate(0.5deg);
+    -o-transform:      rotate(0.5deg);
+    -webkit-transform: rotate(0.5deg);
+    transform:         rotate(0.5deg);    
+}
+.photo-rotate-2 {
+    -moz-transform:    rotate(-0.5deg);
+    -o-transform:      rotate(-0.5deg);
+    -webkit-transform: rotate(-0.5deg);
+    transform:         rotate(-0.5deg);    
+}
+.photo-rotate-3 {
+    -moz-transform:    rotate(1deg);
+    -o-transform:      rotate(1deg);
+    -webkit-transform: rotate(1deg);
+    transform:         rotate(1deg);    
+}
 
 /* ==========================================================================
    Helper classes
@@ -211,23 +250,25 @@ body {
   font-style: normal;
 }
 
-.paper-typeface p {
-    padding: 0;
-    margin: 0 0 32px 0;
+.paper-typeface {
     font-family: Baskerville, myBaskerville, serif;
     font-size: 20px;
     font-weight: 400;
     line-height: 32px;
 }   
-.paper-typeface p em {
+.paper-typeface p {
+    padding: 0;
+    margin: 0 0 32px 0;    
+}
+.paper-typeface em {
     font-family: Baskerville-Italic, myBaskerville-Italic, serif;
     text-decoration: italic;
 }
-.paper-typeface p strong {
+.paper-typeface strong {
     font-family: Baskerville-Bold, myBaskerville-Bold, serif;
     font-weight: bold;
 }
-.paper-typeface p em strong, .paper-typeface p strong em {
+.paper-typeface em strong, .paper-typeface p strong em {
     font-family: Baskerville-BoldItalic, myBaskerville-BoldItalic, serif;
     text-decoration: italic;
     font-weight: bold;
