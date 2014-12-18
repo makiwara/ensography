@@ -58,10 +58,27 @@ body {
     position: relative;
     left: 50%;
     margin-left: -512px;
+    width: 1024px;
+}   
+.wrapper-narrow {
+    position: relative;
+    left: 50%;
+    margin-left: -130px;
+    width: 320px;
 }   
 .paper-main {
     padding: 63px 127px;
     width: 768px;
+}
+.paper-note {
+    padding: 15px 47px;
+    width: 336px;
+    position: absolute;
+    margin: -16px 0 0 624px;
+    -moz-transform:    rotate(-.25deg);
+    -o-transform:      rotate(-.25deg);
+    -webkit-transform: rotate(-.25deg);
+    transform:         rotate(-.25deg);
 }
 .paper-sheet {
     background-color: #ffffff;
@@ -86,6 +103,11 @@ body {
     border: 1px solid rgba(255,255,255,1);
 }
 
+/* ======= SHEETS ========= */
+.article-title-sheet { text-align: center; }
+.article-title-sheet img { display: inline }
+
+
 .userpic {
     border-radius: 32px;
     width: 64px;
@@ -104,45 +126,14 @@ body {
 .userpic-annakot { background-image: url(/static/people/userpic-annakot.png) }
 .userpic-rimanov { background-image: url(/static/people/userpic-rimanov.png) }
 
-.photo-image {
-    background-size: cover;
-    display: table-cell;
-    vertical-align: bottom;
+.above-header {
+    text-align: center;
+    padding: 32px 0 16px;
 }   
-.photo-caption {
-    font-size: 16px;
-    line-height: 18px;
-    color: #515151;
-    background: rgba(255,255,255, 1);
-    padding: 7px 2px 2px;
-    margin: -2px;
-}
-.photo {
-    position: absolute;
-    border-radius: 1px;
-    border: 10px solid rgba(255,255,255,1); 
-    background: rgba(255,255,255,1);
-    -moz-box-shadow:    0px 1px 4px 0px rgba(0,0,0, 0.125);
-    box-shadow:         0px 1px 4px 0px rgba(0,0,0, 0.125);
-}
-.photo-rotate-1 {
-    -moz-transform:    rotate(0.5deg);
-    -o-transform:      rotate(0.5deg);
-    -webkit-transform: rotate(0.5deg);
-    transform:         rotate(0.5deg);    
-}
-.photo-rotate-2 {
-    -moz-transform:    rotate(-0.5deg);
-    -o-transform:      rotate(-0.5deg);
-    -webkit-transform: rotate(-0.5deg);
-    transform:         rotate(-0.5deg);    
-}
-.photo-rotate-3 {
-    -moz-transform:    rotate(1deg);
-    -o-transform:      rotate(1deg);
-    -webkit-transform: rotate(1deg);
-    transform:         rotate(1deg);    
-}
+.above-header p { margin: 0;}
+.above-header img { display: inline; }
+
+
 
 /* ==========================================================================
    Helper classes
@@ -255,6 +246,7 @@ body {
     font-size: 20px;
     font-weight: 400;
     line-height: 32px;
+    color: #252525;
 }   
 .paper-typeface p {
     padding: 0;
@@ -267,6 +259,18 @@ body {
 .paper-typeface strong {
     font-family: Baskerville-Bold, myBaskerville-Bold, serif;
     font-weight: bold;
+}
+.paper-typeface h1 {
+    font-size: 40px;
+    line-height: 64px;
+    font-weight: normal;
+    text-transform: capitalize; /* TODO */
+    opacity: 0.9;
+    letter-spacing: 8px;
+    padding: 0; margin: 0;
+}
+.paper-typeface .paper-typeface-author {
+    font-size: 16px;
 }
 .paper-typeface em strong, .paper-typeface p strong em {
     font-family: Baskerville-BoldItalic, myBaskerville-BoldItalic, serif;
@@ -287,6 +291,7 @@ body {
     line-height: 32px;
     color: #767676;
 }
+.chrome-text-typeface div,
 .chrome-text-typeface p {
     font-family: Helvetica Neue, myHelveticaNeue-Light, sans-serif; 
     font-weight: 300;
@@ -296,7 +301,128 @@ body {
     padding: 0;
     margin: 0 0 32px 0;
 }
+.chrome-text-typeface div {
+    margin: 0;
+}
 .chrome-text-typeface strong {
     font-family: HelveticaNeue-CondensedBold, myHelveticaNeue-CondensedBold, sans-serif; 
     font-weight: bold;
 }
+
+.paper-note p {
+    margin: 0; 
+    padding: 0;
+    font-style: italic;
+}
+
+.decorate-right {
+    text-align: right !important;
+}
+
+/* =====================================================================
+   PHOTO STYLES
+   ===================================================================== */
+.photo-image {
+    background-size: cover;
+    display: table-cell;
+    vertical-align: bottom;
+}   
+.photo-caption {
+    font-size: 16px;
+    line-height: 18px;
+    color: #515151;
+    background: rgba(255,255,255, 1);
+    padding: 7px 2px 2px;
+    margin: -2px;
+}
+.photo {
+    position: absolute;
+    border-radius: 1px;
+    border: 10px solid rgba(255,255,255,1); 
+    background: rgba(255,255,255,1);
+    -moz-box-shadow:    0px 1px 4px 0px rgba(0,0,0, 0.125);
+    box-shadow:         0px 1px 4px 0px rgba(0,0,0, 0.125);
+}
+.photo-rotate-1 {
+    -moz-transform:    rotate(0.5deg);
+    -o-transform:      rotate(0.5deg);
+    -webkit-transform: rotate(0.5deg);
+    transform:         rotate(0.5deg);    
+}
+.photo-rotate-2 {
+    -moz-transform:    rotate(-0.5deg);
+    -o-transform:      rotate(-0.5deg);
+    -webkit-transform: rotate(-0.5deg);
+    transform:         rotate(-0.5deg);    
+}
+.photo-rotate-3 {
+    -moz-transform:    rotate(1deg);
+    -o-transform:      rotate(1deg);
+    -webkit-transform: rotate(1deg);
+    transform:         rotate(1deg);    
+}
+
+/* ========================================================================
+   CHROME STYLES
+   ======================================================================== */
+.chrome-toc-section {
+    margin-top: 16px !important;
+}
+a.chrome-toc-chapter { display: block }
+a.chrome-toc-chapter:link,
+a.chrome-toc-chapter:visited { 
+    text-decoration: none;
+    color: #767676;
+}
+a.chrome-toc-chapter:hover,
+a.chrome-toc-chapter:active { 
+    text-decoration: none;
+    color: #252525; 
+}
+.chrome-toc-hint { 
+    position: absolute;
+    left: 50%;
+    margin-left: -275px;
+    opacity: 0;
+    margin-top: 1px;
+} 
+
+
+/* ========================================================================
+   ICONS
+   ======================================================================== */
+.icon {
+    margin-left: -20px;
+}
+.icon-text { 
+    position: absolute;
+    margin-top: -36px;
+    margin-left: 48px;
+}
+.icon-collapse,
+.icon-img { 
+    width: 40px;
+    height: 40px;
+    background-size: 42px;
+    background-position: center;
+    border: 1px solid #999999;
+    border-radius: 40px;
+}
+.icon--toc .icon-img { background-image: url(/static/img/icon-toc.png) }
+.icon-collapse { 
+    background-image: url(/static/img/icon-collapse.png);
+    position: absolute;
+    opacity: 0;
+}
+.icon:hover { cursor: pointer; }
+.icon:hover .icon-img { border-color: #767676; }
+.control-center {
+    padding: 12px 0;
+    position: relative;
+    left: 50%;
+}
+.control-expandable .control-expansion {
+    display: none
+}   
+.control-expanded .icon-img      { opacity: 0 }
+.control-expanded .icon-collapse { opacity: 1 } 
