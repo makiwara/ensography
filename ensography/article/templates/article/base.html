@@ -27,6 +27,7 @@
 
 <style type="text/css">
 .grid {
+    display: none;
     z-index: 10000;
     position: fixed;
     height: 100%;
@@ -129,12 +130,14 @@
         <script src="/static/js/vendor/jquery.svgicons-2.0.min.js"></script>
         <script src="/static/js/main.js"></script>
         <script type="text/javascript">
-        var grid_visible = true;
+        var grid_visible = false;
+        /*
         $('body').click(function(){
             grid_visible = !grid_visible;
             if (grid_visible) $('.grid').show();
             else              $('.grid').hide();
-        }).click();
+        });
+        */
         </script>
 
     </body>
