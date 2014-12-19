@@ -386,6 +386,11 @@ a.chrome-toc-chapter:active {
     margin-left: -275px;
     opacity: 0;
     margin-top: 1px;
+    -webkit-transition: all .25s ease-out;
+    -moz-transition: all .25s ease-out;
+    -o-transition: all .25s ease-out;
+    -ms-transition: all .25s ease-out;
+    transition: all .25s ease-out;
 } 
 
 
@@ -394,11 +399,21 @@ a.chrome-toc-chapter:active {
    ======================================================================== */
 .icon {
     margin-left: -20px;
+    -webkit-transition: all .5s ease-out;
+    -moz-transition: all .5s ease-out;
+    -o-transition: all .5s ease-out;
+    -ms-transition: all .5s ease-out;
+    transition: all .5s ease-out;
 }
 .icon-text { 
     position: absolute;
     margin-top: -36px;
     margin-left: 48px;
+    -webkit-transition: all .5s ease-out;
+    -moz-transition: all .5s ease-out;
+    -o-transition: all .5s ease-out;
+    -ms-transition: all .5s ease-out;
+    transition: all .5s ease-out;
 }
 .icon-collapse,
 .icon-img { 
@@ -414,6 +429,11 @@ a.chrome-toc-chapter:active {
     background-image: url(/static/img/icon-collapse.png);
     position: absolute;
     opacity: 0;
+    -webkit-transition: all .5s ease-out;
+    -moz-transition: all .5s ease-out;
+    -o-transition: all .5s ease-out;
+    -ms-transition: all .5s ease-out;
+    transition: all .5s ease-out;
 }
 .icon:hover { cursor: pointer; }
 .icon:hover .icon-img { border-color: #767676; }
