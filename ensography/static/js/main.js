@@ -12,6 +12,17 @@ $(function(){
 		})
 		.mouseover(show_tooltips)
 		.mousemove(show_tooltips)
+	$('.author .icon')
+		.mouseover(show_tooltips)
+		.mousemove(show_tooltips)
+
+	$('.author .userpic')
+		.click(function(){
+			show_tooltips();
+			var $ctrl = $(this).parents('.author');
+			var isExpanded = $ctrl.hasClass('author-expanded');
+			$ctrl.toggleClass('author-expanded');
+		})
 
 
 	var timeoutTooltips;
