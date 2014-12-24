@@ -12,9 +12,10 @@ Sort of stuff I should do.
 - - - - - 
 [ ] app template styles (static)
 [ ] discussion styles (static)
-[ ] controls 
+[x] controls 
 [x] table of contents (static)
 [x] dynamic table of contents
 [x] dynamic authorship
 [ ] dynamic comments clientside only
 [ ] dynamic photos
+[ ] CSS responsiveness

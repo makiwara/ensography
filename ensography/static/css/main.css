@@ -281,6 +281,21 @@ body {
     text-decoration: italic;
     font-weight: bold;
 }
+.comments-typeface {
+    font-family: Helvetica Neue, myHelveticaNeue-Light, sans-serif; 
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 32px;
+    color: #252525;
+}
+.comments-author-typeface {
+    font-family: HelveticaNeue-CondensedBold, myHelveticaNeue-CondensedBold, sans-serif; 
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 16px;
+    line-height: 32px;
+    color: #252525;
+}
 .chrome-label-typeface {
     font-family: Helvetica Neue, myHelveticaNeue-Light, sans-serif; 
     font-weight: 300;
@@ -427,10 +442,27 @@ a.chrome-toc-chapter:active {
     background-position: center;
     border: 1px solid #999999;
     border-radius: 40px;
+    -webkit-transition: all .5s ease-out;
+    -moz-transition: all .5s ease-out;
+    -o-transition: all .5s ease-out;
+    -ms-transition: all .5s ease-out;
+    transition: all .5s ease-out;
 }
 .icon--toc     .icon-img { background-image: url(/static/img/icon-toc.png) }
 .icon--email   .icon-img { background-image: url(/static/img/icon-email.png) }
 .icon--message .icon-img { background-image: url(/static/img/icon-message.png) }
+.icon--notes   .icon-img { background-image: url(/static/img/icon-notes.png) }
+.icon--send    .icon-img { background-image: url(/static/img/icon-send.png) }
+.icon--comments .icon-img {
+    background-image: url(/static/img/icon-comments.png);
+    border: none;
+    width: 42px;
+    height: 42px;
+    border-radius: 0;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
 .icon-collapse { 
     background-image: url(/static/img/icon-collapse.png);
     position: absolute;
@@ -453,6 +485,7 @@ a.chrome-toc-chapter:active {
 }   
 .control-expanded .icon-img      { opacity: 0 }
 .control-expanded .icon-collapse { opacity: 1 } 
+.control-expanded .icon-static   { opacity: 1 }
 
 
 .author {
@@ -480,7 +513,7 @@ a.chrome-toc-chapter:active {
     height: 400px;
     margin-left: -24px;
     margin-top: 40px;
-    opacity: 0
+    opacity: 0;
 }
 .author-expanded .author-menu-contents {
     opacity: 1;

@@ -1,6 +1,8 @@
 $(function(){
 
 
+	$('.autosizejs').autosize();
+
 	$('.control-expandable .icon')
 		.click(function(){
 			show_tooltips();
@@ -15,6 +17,8 @@ $(function(){
 	$('.author .icon')
 		.mouseover(show_tooltips)
 		.mousemove(show_tooltips)
+
+	$('.control-comments .icon').click();
 
 	$('.author .userpic')
 		.click(function(){
