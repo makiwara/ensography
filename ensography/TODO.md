@@ -11,11 +11,11 @@ Sort of stuff I should do.
 [ ] serverside comments and such
 - - - - - 
 [ ] app template styles (static)
-[ ] discussion styles (static)
+[x] discussion styles (static)
 [x] controls 
 [x] table of contents (static)
 [x] dynamic table of contents
 [x] dynamic authorship
-[ ] dynamic comments clientside only
+[x] dynamic comments clientside only
 [ ] dynamic photos
 [ ] CSS responsiveness

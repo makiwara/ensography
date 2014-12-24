@@ -18,8 +18,6 @@ $(function(){
 		.mouseover(show_tooltips)
 		.mousemove(show_tooltips)
 
-	$('.control-comments .icon').click();
-
 	$('.author .userpic')
 		.click(function(){
 			show_tooltips();
@@ -28,6 +26,9 @@ $(function(){
 			$ctrl.toggleClass('author-expanded');
 		})
 
+	$('.comments-reply-sheet textarea')
+		.focus(function(){ $(this).parent().next().css({opacity:1}); show_tooltips(); })
+		.blur(function(){  $(this).parent().next().css({opacity:0}) })
 
 	var timeoutTooltips;
 	function hide_tooltips() {

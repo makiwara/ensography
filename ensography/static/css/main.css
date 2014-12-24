@@ -42,6 +42,8 @@ textarea {
 
 
 /* ===== Foundation Styles ==================================================
+   ==========================================================================
+   ==========================================================================
    ========================================================================== */
 
 html, body {
@@ -521,6 +523,168 @@ a.chrome-toc-chapter:active {
 }
 .author-menu-item { margin: 10px 0; }
 .author a { display: block; }
+
+
+/* =============================================================================
+   COMMENTS
+   ============================================================================= */
+.control-right {
+    padding: 12px 0;
+    margin-left: 488px;
+    position: absolute;
+    left: 50%;
+}    
+
+.comments {
+    left: 50%;
+    position: relative;
+}
+.comments-host-left {
+    position: absolute;
+    margin-left: -1024px;
+    opacity: 0.25;
+    -webkit-transition: all .1s ease-out;
+    -moz-transition: all .1s ease-out;
+    -o-transition: all .1s ease-out;
+    -ms-transition: all .1s ease-out;
+    transition: all .1s ease-out;
+}
+.comments-host-right {
+    position: absolute;
+    margin-left: 384px;
+    opacity: 0.25;
+    -webkit-transition: all .1s ease-out;
+    -moz-transition: all .1s ease-out;
+    -o-transition: all .1s ease-out;
+    -ms-transition: all .1s ease-out;
+    transition: all .1s ease-out;
+}
+.comments-host-right .userpic {
+    opacity: 0.5;
+}
+.comments-host-middle {
+    margin-left: -320px;
+}
+.comments-host {
+    width: 640px;
+}
+.comments-host-left:hover,
+.comments-host-right:hover {
+    opacity: 1;
+}
+.comments-paper {
+    min-height: 192px;
+    width: 480px;
+    position: absolute;
+    padding: 32px 32px 32px 128px;
+    -moz-box-shadow:    0px 1px 4px 0px rgba(0,0,0, 0.125);
+    box-shadow:         0px 1px 4px 0px rgba(0,0,0, 0.125);
+}
+.comments-host-middle .comments-paper {
+    position: inherit;
+}
+.comments-host-middle .comments-sheet { position: relative; z-index: 1000 }
+.comments-host-middle .comments-reply-sheet {
+    margin-top: -32px;
+    position: relative; 
+    z-index: 999;
+    opacity: 1;
+}
+.comments-paper .userpic {
+    float: left;
+    margin-left: -96px;
+}
+.comments-pile-1 {
+    -moz-transform:    rotate(0.5deg);
+    -o-transform:      rotate(0.5deg);
+    -webkit-transform: rotate(0.5deg);
+    transform:         rotate(0.5deg);
+}
+.comments-pile-2 {
+    margin-top: 2px;
+    -moz-transform:    rotate(-0.5deg);
+    -o-transform:      rotate(-0.5deg);
+    -webkit-transform: rotate(-0.5deg);
+    transform:         rotate(-0.5deg);
+}
+.comments-pile-3 {
+    margin-left: -3px;
+    -moz-transform:    rotate(0deg);
+    -o-transform:      rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform:         rotate(0deg);
+}
+.comments-area {
+    padding: 0;
+    width: 640px;
+}
+.comments-area textarea {
+    width: 512px;
+    padding: 32px 64px;
+    border: 0px;
+    min-height: 192px;
+    color: #252525;
+    outline: none !important;
+}
+.comments-send {
+    padding: 12px 0;
+    position: relative;
+    left: 50%;
+}
+.comments-hint {
+    position: absolute;
+    line-height: 24px;
+    padding: 12px 0;
+}
+.comments-controls { 
+    display: none; 
+    -webkit-transition: padding .1s ease-out;
+    -moz-transition: padding .1s ease-out;
+    -o-transition: padding .1s ease-out;
+    -ms-transition: padding .1s ease-out;
+    transition: padding .1s ease-out;
+}
+.comments-comments-one {
+    margin: 16px 0;
+}    
+.comments-comments { 
+    margin-top: 32px;
+}
+.comments-comments-text {
+    color: #767676;
+}
+.comments-host-middle .comments-controls { display: block }
+.comments-reply-sheet { 
+    -webkit-transition: all .1s ease-out;
+    -moz-transition: all .1s ease-out;
+    -o-transition: all .1s ease-out;
+    -ms-transition: all .1s ease-out;
+    transition: all .1s ease-out;
+    min-height: 0px;
+    padding: 0;
+    width: 640px;
+    background: #ffffff;
+    opacity: 0;
+}
+.comments-reply-sheet textarea {
+    width: 480px;
+    padding: 32px 32px 0 128px;
+    border: 0px;
+    min-height: 32px;
+    color: #252525;
+    outline: none !important;
+    -webkit-transition: padding .1s ease-out;
+    -moz-transition: padding .1s ease-out;
+    -o-transition: padding .1s ease-out;
+    -ms-transition: padding .1s ease-out;
+    transition: padding .1s ease-out;
+}
+.comments-reply-sheet textarea:focus {
+    padding: 48px 32px 64px 128px;
+}
+.comments-reply-controls { 
+    opacity: 0;
+}
 
 
 /* TODO CONDITIONALS */
