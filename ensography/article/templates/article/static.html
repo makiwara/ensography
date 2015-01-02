@@ -1,17 +1,13 @@
 {% extends "article/base.html" %}
 
-{% block body %}
 
+{% block jquery %}
+{% endblock  %}
+{% block body %}
 
 <div class="brick64"></div>
 
-<div class="wrapper-main">
-    <div class="paper-sheet paper-main paper-typeface">
-        <p>
-        In this brief survey of the mobile parts of our body, we have, only in our extremities and head-mounted devices, close to a hundred directions and types of mobility (degrees of freedom). If we add the snakelike flexibility of our neck and trunk, the resulting number is enormous. The reader can probably sense already the difficulty of control of such a <em>multifaceted</em> mobility, but <strong>probably</strong> does not yet realize what the major problem is. Let us look methodically into all the difficulties and try to reveal the most challenging ones.
-        </p>
-    </div>
-</div>
+{% include "article/parts/crystalgram.html" %}
 
 <div class="brick64"></div>
 

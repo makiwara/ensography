@@ -1,0 +1,87 @@
+{% extends "article/base.html" %}
+
+
+{% block jquery %}
+<script type="text/javascript">
+
+
+$(function(){
+    $.fn.preload = function(callback) {
+        var i=0, that = this;
+        var iter = function(){
+            if (i++ >= that.length) return callback(that);
+            else $('<img/>').load(iter)[0].src = that[i-1];
+        }
+        iter();
+    };
+    var p = [];
+    for (var id=0; id<6; id++)
+        for (var i=0;i<9;i++)
+            p.push('/static/01-ensography/crystalgram/i/'+id+'/'+i+'.png');
+    $(p).preload(function(){
+
+        $('.crystal-src').each(function(){
+            var $this = $(this);
+            var id=$this.data('no');
+            var crystalHtml = [];
+            for (var i=1; i<9; i++)
+                crystalHtml[i-1] = '<div style="transition: all '+stepSeconds+'s linear" class="crystal-'+i+' crystal-img"></div>';
+            $this
+                .html(crystalHtml.join(""))
+                .css({ backgroundImage: 'url(/static/01-ensography/crystalgram/i/'+id+'/0.png)' })
+            var next = function(no, prev) {
+                if (!no) no = 1;
+                var r = prev;
+                while (r == prev) r = parseInt(Math.random()*size+1, 10);
+                if (no > size) {
+                    no = 1;
+                }
+                $this.find('.crystal-'+no).css({ 
+                    opacity: top,
+                    backgroundImage: 'url(/static/01-ensography/crystalgram/i/'+id+'/'+r+'.png)',
+                    transition: 'all '+stepSeconds+'s linear'
+                });
+                setTimeout(function(){
+                    $this.find('.crystal-'+no).css({ 
+                        opacity: bot
+                    });
+                    next(no+1, r);
+                }, step);
+            }
+            setTimeout(next, 1)
+        })    
+    });
+
+    var size = 8;
+    var top = 1;
+    var bot = 0;
+    var step = 1000;
+    var stepTrans = 1.2;
+    var stepSeconds = stepTrans * step / 1000;
+
+
+})
+</script>
+{% endblock  %}
+{% block body %}
+<style type="text/css">
+.crystal-img {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    background-size: 340px;
+    opacity: 0;
+}
+
+.crystal-src { position:inherit; opacity: 1; float:left; margin: 20px; }
+</style>
+<div>
+    <div class="crystal-src crystal-img" data-no = "0"></div>
+    <div class="crystal-src crystal-img" data-no = "1"></div>
+    <div class="crystal-src crystal-img" data-no = "2"></div>
+    <div class="crystal-src crystal-img" data-no = "3"></div>
+    <div class="crystal-src crystal-img" data-no = "4"></div>
+    <div class="crystal-src crystal-img" data-no = "5"></div>
+</div>
+
+{% endblock  %}

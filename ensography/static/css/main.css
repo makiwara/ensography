@@ -256,7 +256,8 @@ body {
 }   
 .paper-typeface p {
     padding: 0;
-    margin: 0 0 32px 0;    
+    margin: 0 0 32px 0; 
+    text-align: justify;   
 }
 .paper-typeface em {
     font-family: Baskerville-Italic, myBaskerville-Italic, serif;
@@ -266,14 +267,26 @@ body {
     font-family: Baskerville-Bold, myBaskerville-Bold, serif;
     font-weight: bold;
 }
-.paper-typeface h1 {
+.paper-typeface h1, 
+.paper-typeface h2 {
     font-size: 40px;
     line-height: 64px;
     font-weight: normal;
     text-transform: uppercase; 
     opacity: 0.9;
     letter-spacing: 8px;
-    padding: 0; margin: 0;
+    padding: 0;
+    margin: 0 0 32px;
+}
+.paper-typeface h1 {
+    text-align: center;
+}
+.paper-typeface h2 small {
+    display: block;
+    font-size: 20px;
+    text-align: left;
+    letter-spacing: 4px;
+    margin-bottom: -32px;
 }
 .paper-typeface .paper-typeface-author {
     font-size: 16px;
@@ -282,6 +295,24 @@ body {
     font-family: Baskerville-BoldItalic, myBaskerville-BoldItalic, serif;
     text-decoration: italic;
     font-weight: bold;
+}
+.paper-typeface ul {
+    list-style-type: none;
+    margin: -16px 0 32px;
+    padding: 0 0 0 24px;
+}
+.paper-typeface ul li:before { content: "—"; margin-left: -24px; }
+.paper-typeface ul li {
+    margin: 16px 0;
+}
+.paper-typeface ol.bibliography {
+    list-style-type: none;
+}
+
+.paper-typeface ol.bibliography li {
+    margin: 16px 0;
+}
+.paper-typeface h1 {
 }
 .comments-typeface {
     font-family: Helvetica Neue, myHelveticaNeue-Light, sans-serif; 
@@ -496,6 +527,9 @@ a.chrome-toc-chapter:active {
     white-space: nowrap;
     margin-top: -64px;
     margin-right: -192px;
+}
+.author-bottom {
+    margin-top: 16px;
 }
 .author .userpic { float: right; }
 .author .author-name {
