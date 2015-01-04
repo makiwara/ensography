@@ -1,8 +1,10 @@
 $(function(){
 
-
+	// GENERIC CHROME SCRIPTS -----------------------------------------------
+	// GENERIC CHROME SCRIPTS -----------------------------------------------
+	// GENERIC CHROME SCRIPTS -----------------------------------------------
+	// GENERIC CHROME SCRIPTS -----------------------------------------------
 	$('.autosizejs').autosize();
-
 	$('.control-expandable .icon')
 		.click(function(){
 			show_tooltips();
@@ -58,5 +60,26 @@ $(function(){
 
 	show_tooltips();
 	$(window).scroll(show_tooltips);
+
+
+	// ILLUSTRATION SCRIPTS ---------------------------------------------------
+	// ILLUSTRATION SCRIPTS ---------------------------------------------------
+	// ILLUSTRATION SCRIPTS ---------------------------------------------------
+	// ILLUSTRATION SCRIPTS ---------------------------------------------------
+	$('.photo-block .photo').click(function(){
+		$(this).appendTo($(this).parent())
+		var $this = $(this);
+		setTimeout(function(){
+			var count = 0;
+			if (!$this.hasClass('photo-flipped'))
+				$this.addClass('photo-flipped');
+			else
+				$this.parent().find('.photo-flipped').each(function(){
+					var $that = $(this);
+					setTimeout(function(){ $that.removeClass('photo-flipped') }, 20*count++)
+				})
+		}, 1)
+		
+	})
 
 })

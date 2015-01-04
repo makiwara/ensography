@@ -395,18 +395,38 @@ body {
     background: rgba(255,255,255,1);
     -moz-box-shadow:    0px 1px 4px 0px rgba(0,0,0, 0.125);
     box-shadow:         0px 1px 4px 0px rgba(0,0,0, 0.125);
+    margin-left: 0;
+    -webkit-transition: all .33s ease;
+    -moz-transition: all .33s ease;
+    -o-transition: all .33s ease;
+    -ms-transition: all .33s ease;
+    transition: all .33s ease;
+    cursor: pointer;
 }
+.photo-block {
+    height: 360px;
+    width: 400px;
+    margin-left: -150px;
+    float:left;
+}    
+.photo-instagram .photo-image {
+    width: 320px; height: 320px;  
+    background-size: cover;
+}
+.photo-instagram .photo-flipped { margin-left: 400px;}
 .photo-rotate-1 {
     -moz-transform:    rotate(0.5deg);
     -o-transform:      rotate(0.5deg);
     -webkit-transform: rotate(0.5deg);
-    transform:         rotate(0.5deg);    
+    transform:         rotate(0.5deg);  
+    margin-left: -10px;  
 }
 .photo-rotate-2 {
     -moz-transform:    rotate(-0.5deg);
     -o-transform:      rotate(-0.5deg);
     -webkit-transform: rotate(-0.5deg);
     transform:         rotate(-0.5deg);    
+    margin-top: -10px;
 }
 .photo-rotate-3 {
     -moz-transform:    rotate(1deg);
@@ -414,7 +434,74 @@ body {
     -webkit-transform: rotate(1deg);
     transform:         rotate(1deg);    
 }
+.photo-rotate-4 {
+    -moz-transform:    rotate(-1deg);
+    -o-transform:      rotate(-1deg);
+    -webkit-transform: rotate(-1deg);
+    transform:         rotate(-1deg);    
+    margin-left: -5px;
+    margin-top: -5px;
+}
+.photo-rotate-5 {
+    -moz-transform:    rotate(2deg);
+    -o-transform:      rotate(2deg);
+    -webkit-transform: rotate(2deg);
+    transform:         rotate(2deg);    
+    margin-left: 5px;
+}
+.photo-rotate-6 {
+    -moz-transform:    rotate(-2deg);
+    -o-transform:      rotate(-2deg);
+    -webkit-transform: rotate(-2deg);
+    transform:         rotate(-2deg);    
+    margin-top: 5px;
+}
 
+.photo-flipped.photo-rotate-1 {
+    -moz-transform:    rotate(5deg);
+    -o-transform:      rotate(5deg);
+    -webkit-transform: rotate(5deg);
+    transform:         rotate(5deg);  
+    margin-left: -10px;  
+    margin-top: 5px;
+}
+.photo-flipped.photo-rotate-2 {
+    -moz-transform:    rotate(4deg);
+    -o-transform:      rotate(4deg);
+    -webkit-transform: rotate(4deg);
+    transform:         rotate(4deg);    
+    margin-top: 0px;
+}
+.photo-flipped.photo-rotate-3 {
+    -moz-transform:    rotate(7deg);
+    -o-transform:      rotate(7deg);
+    -webkit-transform: rotate(7deg);
+    transform:         rotate(7deg);    
+    margin-top: 10px;
+}
+.photo-flipped.photo-rotate-4 {
+    -moz-transform:    rotate(3deg);
+    -o-transform:      rotate(3deg);
+    -webkit-transform: rotate(3deg);
+    transform:         rotate(3deg);    
+    margin-left: -5px;
+    margin-top: 15px;
+}
+.photo-flipped.photo-rotate-5 {
+    -moz-transform:    rotate(6deg);
+    -o-transform:      rotate(6deg);
+    -webkit-transform: rotate(6deg);
+    transform:         rotate(6deg);    
+    margin-left: 5px;
+    margin-top: 15px;
+}
+.photo-flipped.photo-rotate-6 {
+    -moz-transform:    rotate(4deg);
+    -o-transform:      rotate(4deg);
+    -webkit-transform: rotate(4deg);
+    transform:         rotate(4deg);    
+    margin-top: 15px;
+}
 /* ========================================================================
    CHROME STYLES
    ======================================================================== */
