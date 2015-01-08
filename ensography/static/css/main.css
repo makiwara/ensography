@@ -70,7 +70,7 @@ body {
     width: 320px;
 }   
 .paper-main {
-    padding: 63px 127px;
+    padding: 63px 127px 127px;
     width: 768px;
 }
 .paper-note {
@@ -107,8 +107,12 @@ body {
 }
 
 /* ======= SHEETS ========= */
-.article-title-sheet { text-align: center; }
+.article-title-sheet { 
+    text-align: center; 
+    padding-bottom: 63px;
+}
 .article-title-sheet img { display: inline }
+.article-title-sheet p { text-align: center !important }
 
 
 .userpic {
@@ -545,6 +549,7 @@ a.chrome-toc-chapter:active {
     -ms-transition: all .5s ease-out;
     transition: all .5s ease-out;
 }
+.icon-text-sticky,
 .icon-text { 
     position: absolute;
     margin-top: -36px;
@@ -554,7 +559,7 @@ a.chrome-toc-chapter:active {
     -o-transition: all .5s ease-out;
     -ms-transition: all .5s ease-out;
     transition: all .5s ease-out;
-}
+}   
 .icon-collapse,
 .icon-img { 
     width: 40px;
@@ -574,6 +579,7 @@ a.chrome-toc-chapter:active {
 .icon--message .icon-img { background-image: url(/static/img/icon-message.png) }
 .icon--notes   .icon-img { background-image: url(/static/img/icon-notes.png) }
 .icon--send    .icon-img { background-image: url(/static/img/icon-send.png) }
+.icon--next    .icon-img { background-image: url(/static/img/icon-next.png) }
 .icon--comments .icon-img {
     background-image: url(/static/img/icon-comments.png);
     border: none;
@@ -617,7 +623,7 @@ a.chrome-toc-chapter:active {
     margin-right: -192px;
 }
 .author-bottom {
-    margin-top: 16px;
+    margin-top: 80px;
 }
 .author .userpic { float: right; }
 .author .author-name {
@@ -808,5 +814,107 @@ a.chrome-toc-chapter:active {
     opacity: 0;
 }
 
+/* ==================================================================================
+   IPHONE DEMO CONTROLS AND WRAPPER
+   ================================================================================== */
+.chrome-demo-iphone {
+    width: 408px;
+    height: 877px;
+    background-image: url(/static/01-ensography/iphone.png);
+    background-size: cover;
+    zoom: 0.8;
+    /*
+    -moz-transform:    rotate(1deg);
+    -o-transform:      rotate(1deg);
+    -webkit-transform: rotate(1deg);
+    transform:         rotate(1deg);  
+    */
+    margin-left: 128px;
+    -webkit-transition: all .1s ease-out;
+    -moz-transition: all .1s ease-out;
+    -o-transition: all .1s ease-out;
+    -ms-transition: all .1s ease-out;
+    transition: all .1s ease-out;
+    position: absolute;
+}
+.chrome-demo {
+    margin-top: -144px;
+    position: relative;
+    z-index: 100;
+    left: 50%;
+    margin-left: -512px;
+    width: 1024px;
+    height: 640px;
+}
+.chrome-demo:hover .chrome-demo-iphone {
+    -moz-transform:    rotate(0deg);
+    -o-transform:      rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform:         rotate(0deg);  
+
+}
+.chrome-demo-info {
+    position: absolute;
+    margin-top: 256px;
+    margin-left: 512px;
+    width: 384px;
+}
+.chrome-demo-info .icon-img {
+    float: left;
+}
+.chrome-demo-info .icon-text-sticky {
+    float: left;
+    margin-left: 48px;
+    margin-top: 4px;
+}
+.chrome-demo-info .icon {
+    margin-bottom: 32px;
+}
+.chrome-pulsate {
+    position: absolute;
+    z-index: 500;
+    margin: -25px 0 0 -25px;
+    width: 50px; height: 50px;
+    border-radius: 25px;
+    background: rgba(255, 100, 120, 0.5);
+    -webkit-transition: all .15s ease-out;
+    -moz-transition: all .15s ease-out;
+    -o-transition: all .15s ease-out;
+    -ms-transition: all .15s ease-out;
+    transition: all .15s ease-out;
+}
+.chrome-button {
+    position: absolute;
+    x-background: rgba(255, 100, 120, 0.5);
+    cursor: pointer;
+    z-index: 200;
+    display: none;
+}
+.demo-state-active .chrome-button {
+    display: block
+}
+.chrome-demo-state-container {
+    position: absolute;
+    width: 320px; height: 568px;
+    margin-left: 47px;
+    margin-top: 155px;
+    background: #000000;
+    overflow:hidden;
+    box-shadow: 0 0 10px rgba(255,255,255, .125);
+}
+.demo-state {
+    position: absolute;
+    width: 320px; height: 568px;
+    -webkit-transition: all .33s ease-out;
+    -moz-transition: all .33s ease-out;
+    -o-transition: all .33s ease-out;
+    -ms-transition: all .33s ease-out;
+    transition: all .33s ease-out;
+    background: #000000;
+    z-index:99;
+}
+.demo-state-active {
+    z-index: 100;
+}
 
 /* TODO CONDITIONALS */

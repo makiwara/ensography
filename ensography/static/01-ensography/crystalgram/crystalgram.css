@@ -1,0 +1,117 @@
+.crystalgram-state-camera {
+    margin-top: 568px;
+}
+.crystalgram-camera-wrap {
+    -webkit-transition: all .33s ease-out;
+    -moz-transition: all .33s ease-out;
+    -o-transition: all .33s ease-out;
+    -ms-transition: all .33s ease-out;
+    transition: all .33s ease-out;    
+}
+.crystalgram-camera-library {
+    position: absolute;
+    width: 325px;
+    margin-top: 568px;
+}
+.crystalgram-camera-library img {
+    width: 78px;
+    height: 78px;
+    border: 1px solid #000000;
+    margin:0; padding: 0;
+    float: left;
+}
+.crystalgram-result-wrap {
+    width: 320px; height: 445px;
+    background-size: cover;
+}
+.crystalgram-result-wrap1 { background-image: url(/static/01-ensography/crystalgram/ui/placeholder-1.png) }
+.crystalgram-result-wrap2 { background-image: url(/static/01-ensography/crystalgram/ui/placeholder-2.png) }
+.crystalgram-result-wrap3 { background-image: url(/static/01-ensography/crystalgram/ui/placeholder-3.png) }
+.crystalgram-result-photo {
+    position: absolute;
+    width: 320px; height: 320px;
+    margin-top: 46px;
+}
+.crystalgram-result-crystal {
+    position: absolute;
+    width: 320px; height: 320px;
+    margin-top: 46px;
+    opacity: 0.7;
+    background-size: cover;
+    -webkit-transition: all .5s ease-out;
+    -moz-transition: all .5s ease-out;
+    -o-transition: all .5s ease-out;
+    -ms-transition: all .5s ease-out;
+    transition: all .5s ease-out;    
+}
+.crystalgram-result-price {
+    position: absolute;
+    width: 320px; height: 320px;
+    margin-top: 46px;
+    background-size: cover;   
+    -webkit-transition: all .5s ease-out;
+    -moz-transition: all .5s ease-out;
+    -o-transition: all .5s ease-out;
+    -ms-transition: all .5s ease-out;
+    transition: all .5s ease-out;    
+}
+.crystalgram-result-price1 { background-image: url(/static/01-ensography/crystalgram/ui/price-5.png) }
+.crystalgram-result-price2 { background-image: url(/static/01-ensography/crystalgram/ui/price-15.png) }
+.crystalgram-result-price3 { background-image: url(/static/01-ensography/crystalgram/ui/price-25.png) }
+.crystalgram-result-price4 { background-image: url(/static/01-ensography/crystalgram/ui/price-80.png) }
+.crystalgram-result-price5 { background-image: url(/static/01-ensography/crystalgram/ui/price-105.png) }
+.crystalgram-result-price6 { background-image: url(/static/01-ensography/crystalgram/ui/price-175.png) }
+.crystalgram-result-price7 { background-image: url(/static/01-ensography/crystalgram/ui/price-250.png) }
+.crystalgram-result-contents-animated {
+    -webkit-transition: all .5s ease-out;
+    -moz-transition: all .5s ease-out;
+    -o-transition: all .5s ease-out;
+    -ms-transition: all .5s ease-out;
+    transition: all .5s ease-out;    
+
+}
+.crystalgram-filters-crystal {
+    position: absolute;
+    margin-top: 52px;
+    width: 320px; height: 320px;
+    background-size: cover;
+    opacity: 0;
+    -webkit-transition: all 1s ease-out;
+    -moz-transition: all 1s ease-out;
+    -o-transition: all 1s ease-out;
+    -ms-transition: all 1s ease-out;
+    transition: all 1s ease-out;    
+}
+.crystalgram-state-filters,
+.crystalgram-state-share {
+    margin-left: 320px;
+}
+.crystalgram-state-init,
+.crystalgram-state-result,
+.crystalgram-state-final {
+    opacity: 0
+}
+.demo-state-active.crystalgram-state-camera {
+    margin-top: 0;
+}
+.demo-state-active.crystalgram-state-filters,
+.demo-state-active.crystalgram-state-share {
+    margin-left: 0;
+}
+.demo-state-active.crystalgram-state-init,
+.demo-state-active.crystalgram-state-result,
+.demo-state-active.crystalgram-state-final {
+    opacity: 1
+}
+
+.demo-state-prev.crystalgram-state-camera {
+    margin-top: 0;
+}
+.demo-state-prev.crystalgram-state-filters,
+.demo-state-prev.crystalgram-state-share {
+    margin-left: 0;
+}
+.demo-state-prev.crystalgram-state-init,
+.demo-state-prev.crystalgram-state-result {
+    opacity: 1
+}
