@@ -52,7 +52,8 @@ window.Crystalgram = {
             text: ["You can see the picture now in full.<br>This little demonstration is concluded.",
                    "Do you want to experience it once again?"],
             action: "Hit <strong>Camera</strong> to shoot",
-            next: 'camera'
+            next: 'camera',
+            text2: ['You can also take a look on <a href="/portfolio/crystalgram">animated&nbsp;crystallization&nbsp;effects</a>.']
         }
     },
     state : 'init',
