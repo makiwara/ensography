@@ -113,6 +113,7 @@ body {
 }
 .article-title-sheet img { display: inline }
 .article-title-sheet p { text-align: center !important }
+.article-title-sheet .justify p { text-align: justify !important }
 
 
 .userpic {
@@ -147,6 +148,7 @@ body {
    ========================================================================== */
 
 .brick64 { height: 64px; }
+.brick32 { height: 32px; }
 .brick16 { height: 16px; }
 
 

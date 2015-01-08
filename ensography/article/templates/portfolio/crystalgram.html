@@ -1,0 +1,291 @@
+{% extends "article/base.html" %}
+
+{% block jquery %}
+<script type="text/javascript">
+$(function(){
+    $('.portfolio-thumb').click(function(){
+        $('.portfolio-thumb-selected').removeClass('portfolio-thumb-selected');
+        $(this).addClass('portfolio-thumb-selected');
+        $(this).parent().parent().find('.portfolio-current').attr('src', $(this).attr('src'));
+    })
+    $('.crystallize-library img').click(function(){
+        decrystallize();
+        $('.crystallize-library-selected').removeClass('crystallize-library-selected');
+        $(this).addClass('crystallize-library-selected');
+        $(this).parent().parent().find('.crystallize-wrapper img').attr('src', $(this).attr('src'));
+        recrystallize();
+    })
+    $('.crystallize-wrapper').click(function(){
+        animate = false;
+        setTimeout(function(){
+            $('.crystal-img').css({opacity: 0})
+        }, 200)
+        setTimeout(decrystallize, 500)
+    })
+
+
+    $.fn.preload = function(callback) {
+        var i=0, that = this;
+        var iter = function(){
+            if (i++ >= that.length) return callback(that);
+            else $('<img/>').load(iter)[0].src = that[i-1];
+        }
+        iter();
+    };
+    var p = [];
+    $('.crystallize-library img').each(function(){
+        p.push(this.src)
+        for (var i=0;i<9;i++)
+            p.push(this.src.replace('.jpg', '-assets/')+i+'.png');
+    })
+    console.log(p)
+    $(p).preload(function(){
+        ready = true;
+        $('.loader').css({opacity:0})
+        recrystallize();
+    })
+
+    var p = [];  
+    var size = 8;
+    var top = 1;
+    var bot = 0;
+    var step = 1000;
+    var stepTrans = 1.2;
+    var stepSeconds = stepTrans * step / 1000; 
+    var animate = true;
+    var ready = false;
+    var timeout;
+
+    function decrystallize() {
+        clearTimeout(timeout)
+        $('.crystal-img').remove()
+        animate = false;
+    }
+    function recrystallize() {
+        if (!ready) return;
+        animate = true;
+        $('.crystallize-wrapper img').each(function(){
+            var $this = $(this);
+            var srcPrefix = this.src.replace('.jpg', '-assets/');
+            var crystalHtml = [];
+            for (var i=1; i<9; i++)
+                crystalHtml[i-1] = '<div style="transition: all '+stepSeconds+'s linear; opacity:0; background-image: url('+srcPrefix+i+'.png)" class="crystal-'+i+' crystal-img"></div>';
+            $this.before(crystalHtml.join(""))
+            var next = function(no, prev) {
+                if (!no) no = 1;
+                var r = prev;
+                while (r == prev) r = parseInt(Math.random()*size+1, 10);
+                if (no > size) {
+                    no = 1;
+                }
+                $this.parent().find('.crystal-'+no).css({ 
+                    opacity: top,
+                    backgroundImage: 'url('+srcPrefix+r+'.png)',
+                    transition: 'all '+stepSeconds+'s linear'
+                });
+                if (animate)
+                    timeout = setTimeout(function(){
+                        $this.parent().find('.crystal-'+no).css({ 
+                            opacity: bot
+                        });
+                        next(no+1, r);
+                    }, step);
+            }
+            setTimeout(next, 1)
+        })
+    }
+
+
+
+
+
+})
+
+</script>   
+{% endblock  %}
+{% block body %}
+
+<style type="text/css">
+.portfolio-iphone { text-align: left; }
+.portfolio-sketch {
+    float: left;
+    margin-left: -36px;
+}
+.portfolio-current {
+    position: absolute;
+    width: 320px;
+    margin-top: 117px;
+    margin-left: 15px;
+}
+.portfolio-text {
+    width: 320px;
+    float: left;
+    padding: 0px 0 0 64px;
+}
+.portfolio-thumb {
+    width: 96px;
+    margin: 0 32px 32px 0;
+}
+.portfolio-thumbs {
+    margin: 0 -64px 0 64px;
+    float: left;
+    width: 320px;
+    text-align: center;
+    cursor: pointer;
+}
+.portfolio-thumb-selected {
+    outline: 10px solid #D5D4D4;
+}
+.crystal-img { 
+    position: absolute;
+    z-index: 200;
+    width: 480px; height: 480px;
+    background-size: cover;
+}
+</style>
+
+<div class="brick32"></div>
+<div class="wrapper-main">
+    <div class="paper-sheet paper-main paper-typeface article-title-sheet">
+        <img src="/static/01-ensography/crystalgram/portfolio/app-icon.png" />
+        <h1>Crystalgram</h1>
+        <p class="paper-typeface-author">
+            Designed by Nikolay Yaremko in 2015
+        </p>
+        <div class="justify">
+        <p>
+            <em>Crystalgram</em> is the photosocial network where users have to pay crystals to view and discuss exquisite photos. It is described in section 2.2 of <em>Above Photography</em> research. It is quite similar to its Instagram prototype with new feature effect called <em>Crystallization</em> and fancy monetization scheme where users pay virtual currency to view crystallized photos.
+        </p>
+
+        <div class="brick32"></div>
+        <div class="portfolio-iphone clearfix">
+            <img class="portfolio-current" src="/static/01-ensography/crystalgram/portfolio/p-home.png">
+            <img class="portfolio-sketch" src="/static/01-ensography/crystalgram/portfolio/p-iphone.png" width="420" >
+
+            <div class="portfolio-text">
+                <h2><small>User Interface</small></h2>
+                <p style="text-aling:left">
+                   Choose one of the pictures below to view it in larger detail.
+                </p>
+            </div>
+            <div class="portfolio-thumbs">
+                <img src="/static/01-ensography/crystalgram/portfolio/p-home.png" class="portfolio-thumb portfolio-thumb-selected">
+                <img src="/static/01-ensography/crystalgram/portfolio/p-camera.png" class="portfolio-thumb">
+                <img src="/static/01-ensography/crystalgram/portfolio/p-filters.png" class="portfolio-thumb">
+                <img src="/static/01-ensography/crystalgram/portfolio/p-effect.png" class="portfolio-thumb">
+                <img src="/static/01-ensography/crystalgram/portfolio/p-share.png" class="portfolio-thumb">
+            </div>
+        </div>
+        <div class="brick64"></div>
+
+        <h2><small>
+            Crystallization effect
+        </small></h2>
+        <p>
+            There is one special filter that comes with Crystalgram: <em>crystallization</em>. To view picture in full detail user must pay in crystals, Crystalgram virtual currency, therefore crystallization effect is designed to engage user in such undertaking.
+        </p>
+        <p>
+            Crystallized picture remains colorful and viewer still can understand what is beneath the crystal field, but all details are rendered subtle. 
+            Crystallization effect is also designed to enliven vitalize pictures in order to make them more appealing for viewer's eye. Crystallized picture looks alive, it breaths with its crystal skin.
+        </p>
+
+<style type="text/css">
+.loader {
+    position: absolute;
+    left:0; right:0; top: 0; bottom:0;
+    z-index: 1000;
+    background: rgba(0,0,0,0.75);
+    -webkit-transition: all .25s ease-out;
+    -moz-transition: all .25s ease-out;
+    -o-transition: all .25s ease-out;
+    -ms-transition: all .25s ease-out;
+    transition: all .25s ease-out;    
+}
+.crystallize-wrapper {
+    float: left;
+    border: 1px solid #d5d4d4;
+    padding: 15px 15px 75px;
+}
+.crystallize-wrapper img {
+    display: block;
+    width: 480px;
+    border: 1px solid #d5d4d4;
+}
+.crystallize-library {
+    float: left;
+    width: 290px;
+    padding: 0 0 0 32px;
+    margin-right: -80px;
+}
+.crystallize-library img {
+    float: left;
+    width: 48px;
+    margin: 0 10px 10px 0;
+    cursor: pointer;
+}
+.crystallize-library-selected {
+    outline: 5px solid #d5d4d4;
+}
+.crystallize-text {
+    width: 200px;
+    float: left;
+    padding: 32px 0 0 32px;
+}
+
+</style>
+        <div class="crystallize clearfix">
+            <div class="crystallize-wrapper">
+                <img src="/static/01-ensography/crystalgram/photos/01-greyevil.jpg">
+            </div>
+            <div class="crystallize-library">
+                <img class="crystallize-library-selected" src="/static/01-ensography/crystalgram/photos/01-greyevil.jpg">
+                <img src="/static/01-ensography/crystalgram/photos/02-greyevil.jpg">
+                <img src="/static/01-ensography/crystalgram/photos/03-alexnashzemlyak.jpg">
+                <img src="/static/01-ensography/crystalgram/photos/04-alexnashzemlyak.jpg">
+                <img src="/static/01-ensography/crystalgram/photos/05-alexnashzemlyak.jpg">
+                <img src="/static/01-ensography/crystalgram/photos/06-alexnashzemlyak.jpg">
+                <img src="/static/01-ensography/crystalgram/photos/07-alexnashzemlyak.jpg">
+                <img src="/static/01-ensography/crystalgram/photos/08-alexnashzemlyak.jpg">
+                <img src="/static/01-ensography/crystalgram/photos/11-paninazina.jpg">
+                <img src="/static/01-ensography/crystalgram/photos/12-verachkaaa_t23.jpg">
+                <img src="/static/01-ensography/crystalgram/photos/13-bobuk.jpg">
+                <img src="/static/01-ensography/crystalgram/photos/14-i107i.jpg">
+                <img src="/static/01-ensography/crystalgram/photos/15-a_plakhoff.jpg">
+                <img src="/static/01-ensography/crystalgram/photos/16-antonzabannikh.jpg">
+                <img src="/static/01-ensography/crystalgram/photos/17-innubis.jpg">
+                <img src="/static/01-ensography/crystalgram/photos/18-sonna.jpg">
+                <img src="/static/01-ensography/crystalgram/photos/21-abramamama.jpg">
+                <img src="/static/01-ensography/crystalgram/photos/22-abramamama.jpg">
+                <img src="/static/01-ensography/crystalgram/photos/23-abramamama.jpg">
+                <img src="/static/01-ensography/crystalgram/photos/24-abramamama.jpg">
+                <img src="/static/01-ensography/crystalgram/photos/25-abramamama.jpg">
+                <img src="/static/01-ensography/crystalgram/photos/26-abramamama.jpg">
+                <img src="/static/01-ensography/crystalgram/photos/27-abramamama.jpg">
+                <img src="/static/01-ensography/crystalgram/photos/28-abramamama.jpg">
+                <img src="/static/01-ensography/crystalgram/photos/31-basvasilich.jpg">
+                <img src="/static/01-ensography/crystalgram/photos/32-basvasilich.jpg">
+                <img src="/static/01-ensography/crystalgram/photos/33-basvasilich.jpg">
+                <img src="/static/01-ensography/crystalgram/photos/34-basvasilich.jpg">
+                <img src="/static/01-ensography/crystalgram/photos/35-basvasilich.jpg">
+                <img src="/static/01-ensography/crystalgram/photos/36-basvasilich.jpg">
+            </div>
+
+            <div class="crystallize-text">
+                <p style="text-align:left !important">
+                   <em>Click on enlarged picture to remove crystallization.</em>
+                </p>
+            </div>
+
+        </div>
+        </div>
+
+    </div>
+</div>
+<div class="brick64"></div>
+<div class="brick64"></div>
+<div class="brick64"></div>
+
+
+<div class="loader"></div>
+   
+{% endblock  %}
