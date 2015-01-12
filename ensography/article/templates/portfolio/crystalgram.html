@@ -38,7 +38,6 @@ $(function(){
         for (var i=0;i<9;i++)
             p.push(this.src.replace('.jpg', '-assets/')+i+'.png');
     })
-    console.log(p)
     $(p).preload(function(){
         ready = true;
         $('.loader').css({opacity:0})
@@ -191,7 +190,7 @@ $(function(){
 
 <style type="text/css">
 .loader {
-    position: absolute;
+    position: fixed;
     left:0; right:0; top: 0; bottom:0;
     z-index: 1000;
     background: rgba(0,0,0,0.75);

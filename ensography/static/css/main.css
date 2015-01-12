@@ -49,6 +49,7 @@ textarea {
 html, body {
     height: 100%;
     width: 100%;
+    overflow: hidden;
 }
 body {
     background-image: url(/static/img/surface.png);
@@ -274,6 +275,7 @@ body {
     font-weight: bold;
 }
 .paper-typeface h1, 
+.paper-typeface h3,
 .paper-typeface h2 {
     font-size: 40px;
     line-height: 64px;
@@ -293,6 +295,15 @@ body {
     text-align: left;
     letter-spacing: 4px;
     margin-bottom: -32px;
+}
+.paper-typeface h3 {
+    display: block;
+    font-size: 20px;
+    text-align: left;
+    letter-spacing: 4px;
+    opacity: 1;
+    margin: 32px 0 0;
+    color: #252525;
 }
 .paper-typeface .paper-typeface-author {
     font-size: 16px;
