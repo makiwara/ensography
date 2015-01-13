@@ -44,7 +44,7 @@ $(function(){
 
 	var timeoutTOC;
 	$('.chrome-toc-hint').appendTo($('body'))
-	$('.control-toc .chrome-toc-chapter')
+	$('.control-toc .chrome-toc-chapter').not('.chrome-toc-unfinished')
 		.mouseover(function(){
 			clearTimeout(timeoutTOC);
 			$('.chrome-toc-hint').css({
@@ -67,6 +67,7 @@ $(function(){
 	// ILLUSTRATION SCRIPTS ---------------------------------------------------
 	// ILLUSTRATION SCRIPTS ---------------------------------------------------
 	$('.photo-block .photo').click(function(){
+		if ($(this).hasClass('photo-no-move')) return;
 		$(this).appendTo($(this).parent())
 		var $this = $(this);
 		setTimeout(function(){

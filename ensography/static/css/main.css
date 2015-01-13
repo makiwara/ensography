@@ -518,6 +518,7 @@ body {
     width: 320px; height: 320px;  
     background-size: cover;
 }
+.photo-block .photo-flipped { margin-left: 450px;}
 .photo-instagram .photo-flipped { margin-left: 400px;}
 
 /* ========================================================================
@@ -536,6 +537,9 @@ a.chrome-toc-chapter:hover,
 a.chrome-toc-chapter:active { 
     text-decoration: none;
     color: #252525; 
+}
+a.chrome-toc-unfinished {
+    opacity: .25;
 }
 .chrome-toc-hint { 
     position: absolute;
