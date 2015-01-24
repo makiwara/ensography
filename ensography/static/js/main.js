@@ -1,5 +1,11 @@
 $(function(){
 
+
+    $('.auto-comments').each(function(){
+        new window.Comments(this, $(this).data('tag'), this.title)
+    })
+    
+
     // GENERIC CHROME SCRIPTS -----------------------------------------------
     // GENERIC CHROME SCRIPTS -----------------------------------------------
     // GENERIC CHROME SCRIPTS -----------------------------------------------

@@ -735,6 +735,7 @@ a.chrome-toc-unfinished {
 .comments-host-middle .comments-paper {
     position: inherit;
 }
+.comments-host-right .comments-comments,
 .comments-host-middle .comments-reply-sheet,
 .comments-host-middle .comments-reply-controls { display: none }
 .comments-host-middle .comments-sheet { position: relative; z-index: 1000 }
