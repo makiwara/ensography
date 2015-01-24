@@ -49,13 +49,14 @@ textarea {
 html, body {
     height: 100%;
     width: 100%;
-    overflow: hidden;
 }
 body {
     background-image: url(/static/img/surface.png);
     background-size: 288px;
+    overflow-x: hidden;
+}
+html {
     overflow: hidden;
-    overflow-y: scroll; 
 }
 
 .wrapper-main {
@@ -674,9 +675,10 @@ a.chrome-toc-unfinished {
    COMMENTS
    ============================================================================= */
 .control-right {
+    position: relative;
     padding: 12px 0;
     margin-left: 488px;
-    position: absolute;
+    margin-bottom: -66px;
     left: 50%;
 }    
 
@@ -724,10 +726,17 @@ a.chrome-toc-unfinished {
     padding: 32px 32px 32px 128px;
     -moz-box-shadow:    0px 1px 4px 0px rgba(0,0,0, 0.125);
     box-shadow:         0px 1px 4px 0px rgba(0,0,0, 0.125);
+    -webkit-transition: all .25s ease-out;
+    -moz-transition: all .25s ease-out;
+    -o-transition: all .25s ease-out;
+    -ms-transition: all .25s ease-out;
+    transition: all .25s ease-out;
 }
 .comments-host-middle .comments-paper {
     position: inherit;
 }
+.comments-host-middle .comments-reply-sheet,
+.comments-host-middle .comments-reply-controls { display: none }
 .comments-host-middle .comments-sheet { position: relative; z-index: 1000 }
 .comments-host-middle .comments-reply-sheet {
     margin-top: -32px;

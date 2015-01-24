@@ -1,7 +1,18 @@
 Sort of stuff I should do.
 ==========================
 
-GENERIC
+
+Comments
+========
+[ ] fix HTML/CSS with scrolling
+[ ] create tag or parametrized include or smth
+[ ] implement click-to-move
+[ ] implement auth cycle
+[ ] create notes
+[ ] create comments
+
+
+# GENERIC
 -------
 [x] static file and grid
 [x] paper and background
@@ -20,11 +31,15 @@ GENERIC
 [ ] CSS responsiveness
 
 
-CRYSTALGRAM
+# CRYSTALGRAM
 -----------
 [ ] portfolio
 
-HISTORY
+# HISTORY
 -------
 [ ] essay #1
 [ ] essay #2
+
+# INSTALLATION MEMORANDUM
+-------------------------
+pip install python-social-auth
