@@ -11,8 +11,13 @@ def static(request, url):
     from utils.decorations import tpls, HttpResponse
     return HttpResponse(tpls('%s.html'%url, dict(), request), content_type='text/html; charset=UTF-8')
 
+def home(request):
+    from utils.decorations import tpls, HttpResponse
+    return HttpResponse(tpls('article/composition.html', dict(), request), content_type='text/html; charset=UTF-8')
+
 urlpatterns = patterns('',
     #(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.HOST["STATIC_ROOT"]}),
+    (r'^$',		       'urls.home'),
     (r'^(temp)',       'urls.static'),
     (r'^(article/.*)', 'urls.static'),
     (r'^(portfolio/.*)', 'urls.static'),
