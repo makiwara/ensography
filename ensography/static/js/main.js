@@ -1,5 +1,14 @@
-$(function(){
+var timeoutTooltips;
+function hide_tooltips() {
+    $('.icon .icon-text').css({ opacity: 0 })
+}
+function show_tooltips() {
+    $('.icon .icon-text').css({ opacity: 1 })
+    clearTimeout(timeoutTooltips)
+    timeoutTooltips = setTimeout(hide_tooltips, 2500);
+}
 
+$(function(){
 
     $('.auto-comments').each(function(){
         new window.Comments(this, $(this).data('tag'), this.title)
@@ -11,7 +20,7 @@ $(function(){
     // GENERIC CHROME SCRIPTS -----------------------------------------------
     // GENERIC CHROME SCRIPTS -----------------------------------------------
     $('.autosizejs').autosize();
-    $('.control-expandable .icon')
+    $('.control-expandable .control-center .icon, .control-expandable .control-right .icon')
         .click(function(){
             show_tooltips();
             var $ctrl = $(this).parents('.control-expandable');
@@ -37,16 +46,6 @@ $(function(){
     $('.comments-reply-sheet textarea')
         .focus(function(){ $(this).parent().next().css({opacity:1}); show_tooltips(); })
         .blur(function(){  $(this).parent().next().css({opacity:0}) })
-
-    var timeoutTooltips;
-    function hide_tooltips() {
-        $('.icon .icon-text').css({ opacity: 0 })
-    }
-    function show_tooltips() {
-        $('.icon .icon-text').css({ opacity: 1 })
-        clearTimeout(timeoutTooltips)
-        timeoutTooltips = setTimeout(hide_tooltips, 2500);
-    }
 
     var timeoutTOC;
     $('.chrome-toc-hint').appendTo($('body'))

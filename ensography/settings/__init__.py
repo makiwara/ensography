@@ -50,6 +50,7 @@ INSTALLED_APPS = (
     'social.apps.django_app.default',
     'utils',
     'article',
+    'comments',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -64,25 +65,37 @@ MIDDLEWARE_CLASSES = (
 )
 
 AUTHENTICATION_BACKENDS = (
-    'social.backends.open_id.OpenIdAuth',
-    'social.backends.google.GoogleOpenId',
-    'social.backends.google.GoogleOAuth2',
-    'social.backends.google.GoogleOAuth',
-    'social.backends.twitter.TwitterOAuth',
-    'social.backends.yahoo.YahooOpenId',
+    'social.backends.facebook.FacebookOAuth2',
 )
 TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
     'social.apps.django_app.context_processors.backends',
     'social.apps.django_app.context_processors.login_redirect',
 )
 
 ROOT_URLCONF = 'urls'
 
+AUTH_USER_MODEL = 'comments.User'
+
 SOCIAL_AUTH_STRATEGY = 'social.strategies.django_strategy.DjangoStrategy'
 SOCIAL_AUTH_STORAGE  = 'social.apps.django_app.default.models.DjangoStorage'
+SOCIAL_AUTH_FACEBOOK_KEY    = '1527228494217085'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'ae5aa6f6f6901b540d2875d69275b4a7'
+SOCIAL_AUTH_FACEBOOK_SCOPE  = ['public_profile', 'email']
 
 # WSGI_APPLICATION = 'zento.wsgi.application'
-
+SOCIAL_AUTH_PIPELINE = (
+    'social.pipeline.social_auth.social_details',
+    'social.pipeline.social_auth.social_uid',
+    'social.pipeline.social_auth.auth_allowed',
+    'social.pipeline.social_auth.social_user',
+    'social.pipeline.user.get_username',
+    'social.pipeline.user.create_user',
+    'social.pipeline.social_auth.associate_user',
+    'social.pipeline.social_auth.load_extra_data',
+    'social.pipeline.user.user_details',
+    'comments.models.store_user_email',  # <--- mine
+)
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases

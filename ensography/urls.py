@@ -17,6 +17,7 @@ urlpatterns = patterns('',
     (r'^(article/.*)', 'urls.static'),
     (r'^(portfolio/.*)', 'urls.static'),
     url('', include('social.apps.django_app.urls', namespace='social')),
+    url(r'^comments/', include('comments.urls')),
 )
 
 

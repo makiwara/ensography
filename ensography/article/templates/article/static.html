@@ -2,6 +2,9 @@
 
 
 {% block jquery %}
+<script type="text/javascript">
+    window.Comments.loginUrl = '{% url 'social:begin' 'facebook' %}?next=/article/auth';
+</script>
 {% endblock  %}
 {% block body %}
 

@@ -1,16 +1,14 @@
 Sort of stuff I should do.
 ==========================
 
-
-Comments
-========
-[ ] fix HTML/CSS with scrolling
-[ ] create tag or parametrized include or smth
-[ ] implement click-to-move
-[ ] implement auth cycle
+# Comments
+---------
+[x] fix HTML/CSS with scrolling
+[x] create tag or parametrized include or smth
+[x] implement click-to-move
+[x] implement auth cycle
 [ ] create notes
 [ ] create comments
-
 
 # GENERIC
 -------
@@ -31,15 +29,19 @@ Comments
 [ ] CSS responsiveness
 
 
-# CRYSTALGRAM
+# PORTFOLIO
 -----------
-[ ] portfolio
+[x] crystalgram
 
 # HISTORY
 -------
-[ ] essay #1
-[ ] essay #2
+[x] essay #1
+[x] essay #2
+[ ] essay #3
+[ ] essay #4
+
 
 # INSTALLATION MEMORANDUM
 -------------------------
 pip install python-social-auth
+pip install simplejson

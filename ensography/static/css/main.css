@@ -674,6 +674,12 @@ a.chrome-toc-unfinished {
 /* =============================================================================
    COMMENTS
    ============================================================================= */
+.m-comments-send-facebook .icon--send    .icon-img { background-image: url(/static/img/icon-facebook.png) }
+.m-comments-send-facebook-hide { display: block }
+.m-comments-send-facebook-show { display: none }
+.m-comments-send-facebook .m-comments-send-facebook-hide { display: none }
+.m-comments-send-facebook .m-comments-send-facebook-show { display: block }
+
 .control-right {
     position: relative;
     padding: 12px 0;

@@ -27,10 +27,10 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response as _tpl
 from django.template.loader import render_to_string as _tpls
 from django.conf import settings
-#from django.utils import simplejson
 from django.core.mail import mail_admins
 from django.utils.translation import ugettext as _
 from django.contrib.auth import logout as django_logout
+import simplejson
 import sys
 
 try:
@@ -128,5 +128,5 @@ def return_json(func):
                         'text': message}
                         #'text': msg}
         json = simplejson.dumps(response)
-        return HttpResponse(json, mimetype='application/json')
+        return HttpResponse(json, content_type='application/json')
     return wrap
