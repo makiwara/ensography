@@ -45,3 +45,4 @@ Sort of stuff I should do.
 -------------------------
 pip install python-social-auth
 pip install simplejson
+pip install markdown

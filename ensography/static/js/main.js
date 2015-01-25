@@ -8,6 +8,12 @@ function show_tooltips() {
     timeoutTooltips = setTimeout(hide_tooltips, 2500);
 }
 
+// Django CSRF support
+$.ajaxSetup({ beforeSend: function(xhr, settings) {
+    if (!(/^(GET|HEAD|OPTIONS|TRACE)$/.test(settings.type)) && !this.crossDomain)
+        xhr.setRequestHeader("X-CSRFToken", jQuery.cookie('csrftoken'));
+}});
+
 $(function(){
 
     $('.auto-comments').each(function(){
@@ -42,10 +48,6 @@ $(function(){
             var isExpanded = $ctrl.hasClass('author-expanded');
             $ctrl.toggleClass('author-expanded');
         })
-
-    $('.comments-reply-sheet textarea')
-        .focus(function(){ $(this).parent().next().css({opacity:1}); show_tooltips(); })
-        .blur(function(){  $(this).parent().next().css({opacity:0}) })
 
     var timeoutTOC;
     $('.chrome-toc-hint').appendTo($('body'))
@@ -94,56 +96,58 @@ $(function(){
     // COMMENTS SCRIPTS -------------------------------------------------------
     $('.comments-host-right').on('click', '.comments-sheet', function(){
         $this = $(this);
+        $comments = $this.parents('.comments');
         $(this).css({
             'margin-left': -704,
         }).removeClass('comments-pile-1 comments-pile-2 comments-pile-3');
-        $('.comments-host-middle .comments-sheet')
+        $comments.find('.comments-host-middle .comments-sheet')
             .css({
                 'margin-left': -704, 
                 'opacity': 0.5,
             })
             .find('.comments-comments').hide()
-        $('.comments-host-middle .comments-reply-sheet').hide()
-        $('.comments-host-middle .comments-controls').hide()
+        $comments.find('.comments-host-middle .comments-reply-sheet').hide()
+        $comments.find('.comments-host-middle .comments-controls').hide()
         setTimeout(function(){
-            $('.comments-host-middle .comments-sheet')
-                .appendTo('.comments-host-left')
+            $comments.find('.comments-host-middle .comments-sheet')
+                .appendTo($comments.find('.comments-host-left'))
                 .css({'margin-left':0, 'opacity':1})
                 .addClass('comments-pile-'+parseInt(Math.random()*3+1))
-            $this.prependTo('.comments-host-middle')
+            $this.prependTo($comments.find('.comments-host-middle'))
                 .css({'margin-left':0, 'opacity':1})
                 .find('.comments-comments').show()
-            $('.comments-host-middle .comments-reply-sheet').show()
-            $('.comments-reply-controls').show();
+            $comments.find('.comments-host-middle .comments-reply-sheet').show()
+            $comments.find('.comments-reply-controls').show();
         }, 250)
     })
     $('.comments-host-left').on('click', '.comments-sheet', function(){
         $this = $(this);
+        $comments = $this.parents('.comments');
         $(this).css({
             'margin-left': 704,
         }).removeClass('comments-pile-1 comments-pile-2 comments-pile-3');
-        $('.comments-host-middle .comments-sheet')
+        $comments.find('.comments-host-middle .comments-sheet')
             .css({
                 'margin-left': 704,        
                 'opacity': 0.5,
             })
             .find('.comments-comments').hide()
-        $('.comments-host-middle .comments-reply-sheet').hide();
-        $('.comments-host-middle .comments-controls').hide()
+        $comments.find('.comments-host-middle .comments-reply-sheet').hide();
+        $comments.find('.comments-host-middle .comments-controls').hide()
         setTimeout(function(){
-            $('.comments-host-middle .comments-sheet')
-                .appendTo('.comments-host-right')
+            $comments.find('.comments-host-middle .comments-sheet')
+                .appendTo($comments.find('.comments-host-right'))
                 .css({'margin-left':0, 'opacity':1})
                 .addClass('comments-pile-'+parseInt(Math.random()*3+1))
-            $this.prependTo('.comments-host-middle')
+            $this.prependTo($comments.find('.comments-host-middle'))
                 .css({'margin-left':0, 'opacity':1})
                 .find('.comments-comments').show()
             if ($this.hasClass('comments-area')) {
                 $this.find('textarea').focus();
-                $('.comments-area-controls').show();
+                $comments.find('.comments-area-controls').show();
             } else {
-                $('.comments-host-middle .comments-reply-sheet').show()
-                $('.comments-reply-controls').show();
+                $comments.find('.comments-host-middle .comments-reply-sheet').show()
+                $comments.find('.comments-reply-controls').show();
             }
         }, 250)
     })

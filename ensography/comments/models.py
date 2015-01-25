@@ -55,6 +55,7 @@ class UserManager(BaseUserManager):
 
 class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(_('email address'), max_length=254, unique=True)
+    username = models.CharField(_('username/facebook_id'), max_length=254, blank=True)
     first_name = models.CharField(_('first name'), max_length=254, blank=True)
     last_name = models.CharField(_('last name'), max_length=254, blank=True)
     is_staff = models.BooleanField(_('staff status'), default=False,

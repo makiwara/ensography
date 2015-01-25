@@ -11,6 +11,7 @@
                     success: {% if request.user.is_authenticated %}true{% else %}false{% endif %},
                     name: '{{ request.user.get_full_name }}',
                     id: '{{ request.user.username }}',
+                    userpic: '{{ request.user.get_userpic }}',
                     email: '{{ request.user.email }}'
                 });
             window.close();

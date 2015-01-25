@@ -31,6 +31,7 @@ fieldset {
 
 textarea {
     resize: vertical;
+    display: block;
 }
 
 .browsehappy {
@@ -691,6 +692,7 @@ a.chrome-toc-unfinished {
 .comments {
     left: 50%;
     position: relative;
+    min-height: 350px;
 }
 .comments-host-left {
     position: absolute;
@@ -726,7 +728,6 @@ a.chrome-toc-unfinished {
     opacity: 1;
 }
 .comments-paper {
-    min-height: 192px;
     width: 480px;
     position: absolute;
     padding: 32px 32px 32px 128px;
@@ -741,6 +742,28 @@ a.chrome-toc-unfinished {
 .comments-host-middle .comments-paper {
     position: inherit;
 }
+.comments-sheet {
+    height: 192px;
+    overflow: hidden;
+}
+.comments-host-middle .comments-sheet { 
+    height: auto; min-height: 192px; 
+    overflow: visible;
+}
+.comments-shade {
+    width: 100%;
+    height: 32px;
+    margin: 193px 0 0 -128px;
+    display: block;
+    position: absolute;
+    background: -moz-linear-gradient(top,  rgba(253,253,253,0) 0%, rgba(253,253,253,1) 80%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(253,253,253,0)), color-stop(80%,rgba(253,253,253,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(253,253,253,0) 0%,rgba(253,253,253,1) 80%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(253,253,253,0) 0%,rgba(253,253,253,1) 80%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(253,253,253,0) 0%,rgba(253,253,253,1) 80%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(253,253,253,0) 0%,rgba(253,253,253,1) 80%); /* W3C */
+}
+.comments-host-middle .comments-shade { display: none;}
 .comments-host-right .comments-comments,
 .comments-host-middle .comments-reply-sheet,
 .comments-host-middle .comments-reply-controls { display: none }
@@ -779,6 +802,10 @@ a.chrome-toc-unfinished {
     padding: 0;
     width: 640px;
 }
+.comments-area .userpic {
+    margin-top: 32px;
+    display: none;
+}
 .comments-area textarea {
     width: 512px;
     padding: 32px 64px;
@@ -811,7 +838,7 @@ a.chrome-toc-unfinished {
 .comments-comments { 
     margin-top: 32px;
 }
-.comments-comments-text {
+.comments-typeface {
     color: #767676;
 }
 .comments-host-middle .comments-controls { display: block }
@@ -840,12 +867,34 @@ a.chrome-toc-unfinished {
     -ms-transition: padding .1s ease-out;
     transition: padding .1s ease-out;
 }
-.comments-reply-sheet textarea:focus {
+.comments-reply-sheet textarea.m-comments-reply-sheet-focus {
     padding: 48px 32px 64px 128px;
 }
 .comments-reply-controls { 
     opacity: 0;
 }
+
+.comments-typeface p {
+    margin:0;
+    padding:0;
+}
+.comments-typeface li {
+    margin:0 0 0 1em;
+    padding:0;
+}
+.comments-typeface h1, .comments-typeface h2, .comments-typeface h3 {
+    font-weight: bold;
+    margin: 16px 0 0 0;
+    padding: 0;
+    font-size: 16px;
+}
+.comments-typeface ul, li {
+    margin:0;
+    padding:0;
+    color: ;
+}
+.m-comments-suspend .comments-paper { opacity: .5 }
+.m-comments-suspend .comments-send  { opacity: .25 }
 
 /* ==================================================================================
    IPHONE DEMO CONTROLS AND WRAPPER

@@ -82,6 +82,7 @@ SOCIAL_AUTH_STORAGE  = 'social.apps.django_app.default.models.DjangoStorage'
 SOCIAL_AUTH_FACEBOOK_KEY    = '1527228494217085'
 SOCIAL_AUTH_FACEBOOK_SECRET = 'ae5aa6f6f6901b540d2875d69275b4a7'
 SOCIAL_AUTH_FACEBOOK_SCOPE  = ['public_profile', 'email']
+SOCIAL_AUTH_FACEBOOK_AUTH_EXTRA_ARGUMENTS = dict(display="popup")
 
 # WSGI_APPLICATION = 'zento.wsgi.application'
 SOCIAL_AUTH_PIPELINE = (
