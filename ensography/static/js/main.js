@@ -66,8 +66,7 @@ $(function(){
 
 
     show_tooltips();
-    $(window).scroll(show_tooltips);
-
+    $('body').scroll(function(){ show_tooltips() });
 
     // ILLUSTRATION SCRIPTS ---------------------------------------------------
     // ILLUSTRATION SCRIPTS ---------------------------------------------------

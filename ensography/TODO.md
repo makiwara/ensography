@@ -1,15 +1,6 @@
 Sort of stuff I should do.
 ==========================
 
-# Comments
----------
-[x] fix HTML/CSS with scrolling
-[x] create tag or parametrized include or smth
-[x] implement click-to-move
-[x] implement auth cycle
-[ ] create notes
-[ ] create comments
-
 # GENERIC
 -------
 [x] static file and grid
@@ -25,7 +16,7 @@ Sort of stuff I should do.
 [x] dynamic authorship
 [x] dynamic comments clientside only
 [x] dynamic photos
-[ ] serverside comments
+[x] serverside comments
 [ ] CSS responsiveness
 
 
@@ -43,6 +34,7 @@ Sort of stuff I should do.
 
 # INSTALLATION MEMORANDUM
 -------------------------
+pip install django --upgrade
 pip install python-social-auth
 pip install simplejson
 pip install markdown
