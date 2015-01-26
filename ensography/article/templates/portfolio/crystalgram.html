@@ -16,21 +16,23 @@ $(function(){
         recrystallize();
     })
     $('.crystallize-wrapper').click(function(){
-        animate = false;
-        setTimeout(function(){
+        if (animate) {
+            animate = false;
             $('.crystal-img').css({opacity: 0})
-        }, 200)
-        setTimeout(decrystallize, 500)
+            setTimeout(decrystallize, 500)          
+        } else {
+            animate = true;
+            $('.crystal-img').css({opacity: 1})          
+            setTimeout(recrystallize, 500)
+        }
     })
 
 
-    $.fn.preload = function(callback) {
+    $.fn.preload = function(callback) {      
         var i=0, that = this;
-        var iter = function(){
-            if (i++ >= that.length) return callback(that);
-            else $('<img/>').load(iter)[0].src = that[i-1];
-        }
-        iter();
+        var increment = function() { if (++i >= that.length) return callback(that); }
+        for (var j=0; j<that.length; j++)
+            $('<img/>').load(increment)[0].src = that[j];
     };
     var p = [];
     $('.crystallize-library img').each(function(){
@@ -160,7 +162,7 @@ html, body { height: auto; overflow: auto;}
 
             <div class="portfolio-text">
                 <h2><small>User Interface</small></h2>
-                <p style="text-aling:left">
+                <p style="text-align:left !important">
                    Choose one of the pictures below to view it in larger detail.
                 </p>
             </div>
@@ -287,7 +289,7 @@ html, body { height: auto; overflow: auto;}
 
 <div class="loader chrome-text-typeface">
     <p>
-        Demonstration is loading, this could take quite a some time due to excessive amount of graphics.
+        Demonstration is loading, this could take quite a long time due to excessive amount of graphics.
     </p>
 </div>
    
