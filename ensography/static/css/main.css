@@ -999,4 +999,19 @@ a.chrome-toc-unfinished {
     z-index: 100;
 }
 
+.loader {
+    position: fixed;
+    left:0; right:0; top: 0; bottom:0;
+    z-index: 1000;
+    background: rgba(0,0,0,0.95);
+    -webkit-transition: all .25s ease-out;
+    -moz-transition: all .25s ease-out;
+    -o-transition: all .25s ease-out;
+    -ms-transition: all .25s ease-out;
+    transition: all .25s ease-out; 
+    color: #ffffff;
+    text-align: center;
+    padding-top: 270px;
+}
+
 /* TODO CONDITIONALS */

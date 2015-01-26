@@ -8,6 +8,14 @@ function show_tooltips() {
     timeoutTooltips = setTimeout(hide_tooltips, 2500);
 }
 
+// Tiny preloader plugin
+$.fn.preload = function(callback) {      
+    var i=0, that = this;
+    var increment = function() { if (++i >= that.length) return callback(that); }
+    for (var j=0; j<that.length; j++)
+        $('<img/>').load(increment)[0].src = that[j];
+};
+
 // Django CSRF support
 $.ajaxSetup({ beforeSend: function(xhr, settings) {
     if (!(/^(GET|HEAD|OPTIONS|TRACE)$/.test(settings.type)) && !this.crossDomain)
