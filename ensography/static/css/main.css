@@ -838,7 +838,7 @@ a.chrome-toc-unfinished {
 .comments-comments { 
     margin-top: 32px;
 }
-.comments-typeface {
+.comments-comments .comments-typeface {
     color: #767676;
 }
 .comments-host-middle .comments-controls { display: block }
