@@ -41,6 +41,7 @@ $(function(){
     $(p).preload(function(){
         ready = true;
         $('.loader').css({opacity:0})
+        setTimeout(function(){ $('.loader').hide() }, 250);
         recrystallize();
     })
 
@@ -93,11 +94,6 @@ $(function(){
             setTimeout(next, 1)
         })
     }
-
-
-
-
-
 })
 
 </script>   
@@ -105,6 +101,7 @@ $(function(){
 {% block body %}
 
 <style type="text/css">
+html, body { height: auto; overflow: auto;}
 .portfolio-iphone { text-align: left; }
 .portfolio-sketch {
     float: left;
@@ -290,7 +287,7 @@ $(function(){
 
 <div class="loader chrome-text-typeface">
     <p>
-        Demonstration is loading, please wait a little bit more.
+        Demonstration is loading, this could take quite a some time due to excessive amount of graphics.
     </p>
 </div>
    
