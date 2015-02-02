@@ -4,6 +4,11 @@
 ## NICE TO HAVE
 [ ] better preloading for product demos
 [ ] CSS responsiveness
+[ ] open finding when clicked on Findings icon
+[ ] move to paper when clicked on Collapse icon
+[ ] remove hover hint in TOC
+[ ] employ autoprefixer
+[ ] preload product demo assets
 
 
 # INSTALLATION MEMORANDUM
