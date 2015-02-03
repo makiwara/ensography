@@ -33,11 +33,9 @@ $(function(){
         for (var i=0;i<9;i++)
             p.push(this.src.replace('.jpg', '-assets/')+i+'.png');
     })
-    $(p).preload(function(){
+    preload(p, function(){
         ready = true;
-        $('.loader').css({opacity:0})
-        setTimeout(function(){ $('.loader').hide() }, 250);
-        recrystallize();
+        recrystallize();        
     })
 
     var p = [];  
@@ -266,10 +264,5 @@ html, body { height: auto; overflow: auto;}
 <div class="brick64"></div>
 
 
-<div class="loader chrome-text-typeface">
-    <p>
-        Demonstration is loading, this could take quite a long time due to excessive amount of graphics.
-    </p>
-</div>
    
 {% endblock  %}

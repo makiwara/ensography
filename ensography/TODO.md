@@ -1,6 +1,13 @@
 # Sort of stuff I plan to do in the nearest future
 ==================================================
 
+
+## BOTTLE
+[x] static design for experiment
+[ ] image uploader
+[ ] run experiment
+
+
 ## NICE TO HAVE
 [ ] better preloading for product demos
 [ ] CSS responsiveness

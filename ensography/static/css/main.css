@@ -362,6 +362,7 @@ html {
     line-height: 32px;
     color: #767676;
 }
+.chrome-text-typeface input,
 .chrome-text-typeface div,
 .chrome-text-typeface p {
     font-family: Helvetica Neue, myHelveticaNeue-Light, sans-serif; 
@@ -379,6 +380,7 @@ html {
     font-family: HelveticaNeue-CondensedBold, myHelveticaNeue-CondensedBold, sans-serif; 
     font-weight: bold;
     text-transform: uppercase;
+    letter-spacing: .75px;
 }
 
 .paper-note p {
@@ -599,6 +601,8 @@ a.chrome-toc-unfinished {
 .icon--notes   .icon-img { background-image: url(/static/img/icon-notes.png) }
 .icon--send    .icon-img { background-image: url(/static/img/icon-send.png) }
 .icon--next    .icon-img { background-image: url(/static/img/icon-next.png) }
+.icon--facebook .icon-img { background-image: url(/static/img/icon-facebook.png) }
+
 .icon--comments .icon-img {
     background-image: url(/static/img/icon-comments.png);
     border: none;
@@ -1012,6 +1016,25 @@ a.chrome-toc-unfinished {
     color: #ffffff;
     text-align: center;
     padding-top: 270px;
+}
+.curtain {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom:0;
+    z-index: 800;
+    background:rgba(0,0,0, 0.50);
+    display: none;
+    opacity: 0;
+    transition: all .1s ease-out;
+}
+html.blocked {
+    overflow: hidden;
+}
+html.blocked .curtain {
+    opacity: 1;
+    display: block;
 }
 
 /* TODO CONDITIONALS */

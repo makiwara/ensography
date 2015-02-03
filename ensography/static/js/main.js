@@ -1,6 +1,6 @@
 var timeoutTooltips;
 function hide_tooltips() {
-    $('.icon .icon-text').css({ opacity: 0 })
+    $('.icon .icon-text').filter('.icon-always-visible-label').css({ opacity: 0 })
 }
 function show_tooltips() {
     $('.icon .icon-text').css({ opacity: 1 })
