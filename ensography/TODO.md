@@ -4,7 +4,7 @@
 
 ## BOTTLE
 [x] static design for experiment
-[ ] image uploader:
+[-] image uploader:
     [ ] set up admin UI
     [ ] multi-part form
     [ ] upload file
@@ -14,10 +14,7 @@
 
 
 ## NICE TO HAVE
-[ ] better preloading for product demos
 [ ] CSS responsiveness
-[ ] open finding when clicked on Findings icon
-[ ] move to paper when clicked on Collapse icon
 [ ] employ autoprefixer
 [ ] preload product demo assets
 

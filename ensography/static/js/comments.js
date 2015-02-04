@@ -204,18 +204,19 @@ window.Comments.prototype = {
         var prerender = [
             '<div class="control-expandable">',
             '<div class="control-right js-comments-count-wrapper" style="display:none">',
-            '   <div class="icon icon--comments clearfix">',
+            '   <div class="icon icon--comments clearfix js-comments-control-comments">',
             '       <div class="js-comments-count icon-img icon-static chrome-label-typeface">X</div>',
-            '       <div class="icon-text chrome-label-typeface">Findings</div>',
+            '       <div class="icon-text chrome-label-typeface">Discussion</div>',
             '   </div>',
             '</div>',
             '<div class="control-center control-comments">',
-            '   <div class="icon icon--notes clearfix">',
+            '   <div class="icon icon--notes js-comments-control-textarea" style="float:left">',
             '       <div class="icon-collapse"></div>',
             '       <div class="icon-img"></div>',
             '       <div class="icon-text chrome-label-typeface">'+this.title+'</div>',
             '   </div>',
             '</div>',
+            '<div class="clearfix" style="margin-bottom: 10px"></div>',
             '<div class="control-expansion">',
             '   <div class="comments clearfix">',
             '       <div class="comments-host-left comments-host"></div>',
@@ -251,8 +252,8 @@ window.Comments.prototype = {
             '           </div>',
             '       </div>',
             '   </div>',
-            '   <div class="brick64"></div>',
             '</div>',
+            '<div class="brick64"></div>',
             '</div>'
         ].join("");
         this.$.html(prerender);
@@ -306,6 +307,24 @@ window.Comments.prototype = {
         this.$.find('.icon')
             .mouseover(show_tooltips)
             .mousemove(show_tooltips)
+        this.$.find('.js-comments-control-comments').click(function(){
+            var is_done = false;
+            that.$.find('.comments-host-right .comments-sheet').each(function() {
+                is_done = true;
+                $(this).click();
+            })
+            if (is_done && $(this).parents('.control-expandable').hasClass('control-expanded')) 
+                $(this).data('skip-click', true);
+        })
+        this.$.find('.js-comments-control-textarea').click(function(e){
+            var is_done = false;
+            that.$.find('.comments-host-left .comments-sheet').each(function() {
+                is_done = true;
+                $(this).click();
+            })
+            if (is_done && $(this).parents('.control-expandable').hasClass('control-expanded')) 
+                $(this).data('skip-click', true);
+        })
     },
 
 

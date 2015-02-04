@@ -36,6 +36,10 @@ $(function(){
     $('.autosizejs').autosize();
     $('.control-expandable .control-center .icon, .control-expandable .control-right .icon')
         .click(function(){
+            if ($(this).data('skip-click')) {
+                $(this).data('skip-click', false);
+                return;
+            }
             show_tooltips();
             var $ctrl = $(this).parents('.control-expandable');
             var isExpanded = $ctrl.hasClass('control-expanded');
