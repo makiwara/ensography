@@ -51,6 +51,7 @@ INSTALLED_APPS = (
     'utils',
     'article',
     'comments',
+    'bottle',
 )
 
 MIDDLEWARE_CLASSES = (

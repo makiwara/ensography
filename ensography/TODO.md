@@ -4,7 +4,12 @@
 
 ## BOTTLE
 [x] static design for experiment
-[ ] image uploader
+[ ] image uploader:
+    [ ] set up admin UI
+    [ ] multi-part form
+    [ ] upload file
+    [ ] signal to redraw from iframe
+    [ ] get answers and redraw
 [ ] run experiment
 
 

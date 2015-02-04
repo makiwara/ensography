@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Above Photography — 2015</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="/static/css/normalize.min.css">
+        <link rel="stylesheet" href="/static/css/main.css">
+        <script src="/static/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <style type="text/css">
+            body { padding: 16px; }
+            .upload .icon { margin-left: 0; }
+            .upload input {
+                display: block;
+                line-height: 0;
+                padding: 8px;
+                border: 1px solid #aaaaaa;
+                border-radius: 3px;
+                margin: -20px 0 16px;
+                cursor: pointer;
+            }
+            .upload input:hover { background: rgba(255,255,255,0.25); }
+        </style>
+    </head>
+    <body>
+        <!-- TODO employ multi-part form -->
+        <div class="upload">
+            <div class="chrome-text-typeface">
+                <p>
+                    {% if is_question %}
+                        <strong>Find photo of yours to reply with</strong>
+                        <br>
+                        It would be better if you supply an image you made by&nbsp;yourself.
+                        At least do not violate author’s rights.
+                    {% else %}
+                        <strong>Add a bottle of your own</strong>
+                        <br>
+                        Now it is your turn to send a message in the bottle.
+                        <br>
+                        Choose wisely.
+                    {% endif %}
+                </p>
+                {% if is_question %}
+                    <input type="hidden" name="question" value="{{pk}}">
+                {% endif %}
+                <input type="file" name="photo" >
+            </div>
+            <div class="icon icon--send clearfix icon-always-visible-label">
+                <div class="icon-img icon-static"></div>
+                <div class="icon-text chrome-label-typeface">Upload photograph</div>
+            </div>
+        </div>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/static/js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+    </body>
+</html>
