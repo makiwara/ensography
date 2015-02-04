@@ -545,19 +545,6 @@ a.chrome-toc-chapter:active {
 a.chrome-toc-unfinished {
     opacity: .25;
 }
-.chrome-toc-hint { 
-    position: absolute;
-    left: 50%;
-    margin-left: -275px;
-    opacity: 0;
-    margin-top: 1px;
-    -webkit-transition: all .25s ease-out;
-    -moz-transition: all .25s ease-out;
-    -o-transition: all .25s ease-out;
-    -ms-transition: all .25s ease-out;
-    transition: all .25s ease-out;
-} 
-
 
 /* ========================================================================
    ICONS

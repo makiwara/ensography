@@ -57,22 +57,6 @@ $(function(){
             $ctrl.toggleClass('author-expanded');
         })
 
-    var timeoutTOC;
-    $('.chrome-toc-hint').appendTo($('body'))
-    $('.control-toc .chrome-toc-chapter').not('.chrome-toc-unfinished')
-        .mouseover(function(){
-            clearTimeout(timeoutTOC);
-            $('.chrome-toc-hint').css({
-                opacity: 1,
-                top: $(this).offset().top
-            })
-        })
-        .mouseout(function(){
-            clearTimeout(timeoutTOC);
-            timeoutTOC = setTimeout(function(){ $('.chrome-toc-hint').css('opacity', 0) }, 250)
-        })
-
-
     show_tooltips();
     $('body').scroll(function(){ show_tooltips() });
 
