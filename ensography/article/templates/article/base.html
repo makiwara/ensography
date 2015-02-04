@@ -13,6 +13,8 @@
         <link rel="stylesheet" href="/static/css/normalize.min.css">
         <link rel="stylesheet" href="/static/css/main.css">
         <link rel="stylesheet" href="/static/01-ensography/crystalgram/crystalgram.css">
+        {% block styles %}
+        {% endblock  %}
 
         <script src="/static/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
@@ -169,6 +171,7 @@ function preload(p, optional_callback) {
         <script src="/static/js/comments.js"></script>
         <script src="/static/01-ensography/crystalgram/crystalgram.js"></script>
         <script type="text/javascript">
+        if (!window.Comments) window.Comments = function(){};
         window.Comments.loginUrl = '{% url 'social:begin' 'facebook' %}?next=/article/auth&display=popup';
         var grid_visible = false;
         /*

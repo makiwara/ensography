@@ -1,12 +1,11 @@
 {% extends "article/base.html" %}
 
+{% block styles %}
+<link rel="stylesheet" href="/static/01-ensography/bottle/bottle-experiment.css">
+{% endblock  %}
+
 
 {% block body %}
-
-<style type="text/css">
-html, body { height: auto; overflow: auto;}
-</style>
-
 <div class="brick32"></div>
 <div class="wrapper-main">
     <div class="paper-sheet paper-main paper-typeface article-title-sheet">
@@ -14,59 +13,54 @@ html, body { height: auto; overflow: auto;}
         <h1>The Bottle Experiment</h1>
         <div class="justify">
         <p>
-            <em>Bottle</em> is the anonymous image messaging network where users send photo-answers in return for incoming messages. It is described in the section 2.3 of <em>Above Photography</em> research.
+            <em>Bottle</em> is the anonymous image messaging network where users send photo-answers to incoming messages. It is described in the section 2.3 of <em>Above Photography</em> research.
         </p>
         <p>
-            This section of research welcomes co-researchers to take part in the simulation of how the app should work: which behavioral patterns would appear under various circumstances. In particular, this little experiment allows co-researchers to play: to upload their own photographs in response to simulated ‘incoming bottles’.
+            Current section of research welcomes co-researchers to take part in the simulation of how the app should work: which behavioral patterns would appear under various circumstances. In particular, this little experiment allows co-researchers to play: to upload their own photographs in response to simulated ‘incoming bottles’.
         </p>
         
         </div>
     </div>
 </div>
 
-<style type="text/css">
-.wrapper-experiment {
-    position: relative;
-    left: 50%;
-    margin-left: -320px;
-    width: 640px;
-}
-.experiment-auth { margin: 64px 0; }
-.experiment-auth-icon { margin-left: 16px; }
-.experiment-auth-complete { margin: 64px 0 16px }
-.experiment-auth-complete .userpic { 
-    float: left;
-    margin-left: -96px;
-    margin-top: -16px;
-}
-.experiment-one {
-    margin: 0 -96px;   
-}
-.experiment-one .photo img { width: 320px; height: 320px; display: block }
-.experiment-one iframe {
-    margin-left: 360px;
-    width: 400px;
-    height: 240px;
-    margin-top: 32px;
-    border: none;
-    position: absolute;
-}
-.experiment-add {
-    margin: 0 -96px;   
-}
-.experiment-add iframe {
-    margin-left: 360px;
-    width: 400px;
-    height: 240px;
-    margin-top: 32px;
-    border: none;
-    position: absolute;
-}
-
-
-</style>
-
 <div class="wrapper-experiment">
+    <div class="experiment-auth">
+        <div class="chrome-text-typeface">
+            <p><strong>Please introduce yourself</strong></p>
+            <p>
+                None of personal data collected will be used: all data-sets will be anonymised. Facebook authorisation is only a way to verify participants’ good intentions and to provide them with decent way to manage their data afterwards.
+            </p>
+        </div>
+        <div class="experiment-auth-icon">
+            <div class="icon icon--facebook clearfix icon-always-visible-label js-auth">
+                <div class="icon-img icon-static"></div>
+                <div class="icon-text chrome-label-typeface">Sign in with Facebook</div>
+            </div>
+        </div>
+    </div>
+    <div class="experiment-auth-complete">
+        <div class="userpic userpic-nyaremko"></div>
+        <div class="chrome-text-typeface">
+            <p><strong>Welcome, Nikolay Yaremko!</strong></p>
+            <p>
+                You will see a photograph below. Please upload your photo-answer accordingly, and you will see collected
+                works of whole research group. Proceed to the next photograph, and so on, and so on, and on and on. And on.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="brick64"></div>
+<div class="brick64"></div>
+<div class="brick64"></div>
+
+
+<style type="text/css">
+.wrapper-hidden {
+    display: none;
+}
+</style>
+<div class="wrapper-hidden">
     <div class="experiment-auth">
         <div class="chrome-text-typeface">
             <p><strong>Please introduce yourself</strong></p>
@@ -91,182 +85,6 @@ html, body { height: auto; overflow: auto;}
             </p>
         </div>
     </div>
-
-<style type="text/css">
-.bottle {
-    position: absolute;
-    width: 31px;
-    height: 100px;
-    margin-top: 100px;
-}
-.bottle-bg-empty, .bottle-bg-full {
-    position: absolute;
-    width: 31px;
-    height: 100px;
-    background-size: cover;
-    transition: all .5s ease-out;
-}
-.bottle-bg-empty { background-image: url(/static/01-ensography/bottle/ui/bottle-empty.png); }
-.bottle-bg-full { background-image: url(/static/01-ensography/bottle/ui/bottle-full.png); }
-.bottle-full .bottle-bg-empty { opacity: 0 }
-.bottle-empty .bottle-bg-full { opacity: 0 }
-.experiment-one-results {
-    opacity: 0;
-    min-height: 320px;
-    margin-left: 60px;
-}
-/* ---- */
-/* ---- Animation ---- */
-/* ---- */
-.experiment-one-state-start .bottle {
-    transform: rotate(90deg);
-    margin-left: -2000px;
-
-}
-.experiment-one-state-start iframe { opacity: 0 }
-.experiment-one-state-start .experiment-photo { opacity: 0; }
-/* ---- */
-.experiment-one-state-upload   .bottle,
-.experiment-one-state-enlarge  .bottle,
-.experiment-one-state-incoming .bottle,
-.experiment-one-state-open     .bottle {
-    margin-left: -50px;
-    transform: rotate(0);
-    transition: all .75s ease-out;
-}
-.experiment-one-state-enlarge  iframe,
-.experiment-one-state-incoming iframe,
-.experiment-one-state-open     iframe { opacity: 0 }
-.experiment-one-state-incoming .experiment-photo { opacity: 0; border-left: 0 }
-.experiment-one-state-incoming .experiment-photo img { width: 1px; height: 1px; visibility: hidden; }
-.experiment-one-state-incoming .experiment-photo {
-    margin-left: -40px;
-    margin-top:  100px;
-}
-/* ----- */
-.experiment-one-state-open .experiment-photo { 
-    opacity: 1; border-left: 0;
-    margin-left: -40px;
-    margin-top: 60px;
-    transition: all .25s ease-out;
-}
-.experiment-one-state-open .experiment-photo img { width: 1px; height: 1px; visibility: hidden; }
-/* ----- */
-.experiment-one-state-upload .experiment-photo,
-.experiment-one-state-enlarge .experiment-photo { 
-    opacity: 1; 
-    margin-left: 0;
-    margin-top: 0;
-    transition: all .25s ease-out;
-}
-.experiment-one-state-upload .experiment-photo img,
-.experiment-one-state-enlarge .experiment-photo img { 
-    width: 320px; height: 320px; 
-    transition: all .25s ease-out;
-}
-/* ----- */
-.experiment-one-state-upload iframe { 
-    opacity: 1;
-    transition: all .5s ease-out;
-}
-/* ----- */
-.experiment-one-state-results iframe { 
-    opacity: 0;
-    transition: all .25s ease-out;
-}
-.experiment-one-state-results .bottle {
-    margin-left: -150px;
-    transform: rotate(-45deg);
-    transition: all .25s ease-out;
-}
-.experiment-one-state-results .experiment-photo { 
-    opacity: 1; 
-    margin-left: -130px;
-    margin-top: 80px;
-    transition: all .25s ease-out;
-    border: 5px solid #ffffff;
-}
-.experiment-one-state-results .experiment-photo img { 
-    width: 160px; height: 160px; 
-    transition: all .25s ease-out;
-}
-.experiment-one-state-results .experiment-one-results {
-    opacity: 1;
-    transition: all .25s ease-out;
-}
-/* --- */
-.experiment-one-results .photo {
-    position: inherit;
-    float: left;
-    margin: 0 10px 10px 0;
-    border: 5px solid #ffffff;
-    transition: none;
-}
-.experiment-one-results .photo img {
-    width: 160px; height: 160px;
-    transition: none;
-}
-.experiment-one-results .photo-enlarged {
-    position: relative;
-    z-index: 1000;
-    margin: -165px -155px -155px -165px;
-    border: 10px solid #ffffff;
-}
-.experiment-one-results .photo-enlarged img {
-    width: 480px; height: 480px;
-}
-.experiment-one-results .photo:nth-child(4n)   { transform: rotate( 1.0deg); }
-.experiment-one-results .photo:nth-child(4n+1) { transform: rotate(-1.0deg); }
-.experiment-one-results .photo:nth-child(4n+2) { transform: rotate( 0.5deg); }
-.experiment-one-results .photo:nth-child(4n+3) { transform: rotate(-0.5deg); }
-.experiment-one-results-pan { height: 80px; }
-
-</style>
-<script type="text/javascript">
-function simulate_results() {
-    $('.experiment-one').removeClass('experiment-one-state-start').addClass('experiment-one-state-results');
-}
-function simulate() {
-    var $e = $('.experiment-one');
-    var animation_time = 0;
-    var animation = [
-        ['start', 0], 
-        ['incoming', 750], 
-        ['open', 250, 
-            function($context) { $context.find('.bottle').addClass('bottle-empty').removeClass('bottle-full') }],
-        ['enlarge', 750, function($context) { 
-            $context.find('.photo').addClass('photo-rotate-'+parseInt(Math.random()*6+1)) }],
-        ['upload']
-    ];
-    var prefix = 'experiment-one-state-';
-    for (var i=0; i<animation.length; i++) {
-        (function(){
-            var this_state = animation[i];
-            var next_state = (i+1 == animation.length) ? false : animation[i+1];
-            animation_time += this_state[1];
-            if (next_state) setTimeout(function(){
-                $e.removeClass(prefix+this_state[0]).addClass(prefix+next_state[0]);
-                if (next_state[2]) next_state[2]($e);
-            }, animation_time)
-        })();
-    }
-}
-</script>
-<style type="text/css">
-.experiment-add-container {
-    height: 320px;
-    float: left;
-}
-.experiment-add .bottle, .experiment-add .bottle-bg-full {
-    width: 62px;
-    height: 200px;
-}
-.experiment-add .bottle {
-    transform: rotate(45deg);
-    margin: 30px 0 0 200px;
-}
-
-</style>
 
     <div class="experiment-add clearfix">
         <div class="experiment-add-container">
@@ -328,26 +146,72 @@ function simulate() {
 {% block jquery %}
 <script type="text/javascript" src="/static/01-ensography/bottle/bottle-experiment.js"></script>
 <script type="text/javascript">
-    preload();
-    simulate();
-    $('.curtain').click(function(){ $($('html').data('curtain-click')).click(); })
-    $('.photo-enlarged').click
-    $('.wrapper-experiment').on('click', '.experiment-one-results .photo', function(){
-        var $photo = $('<div class="photo">'+$(this).html()+'</div>');
-        $photo.addClass('photo-enlarged')
-              .css({
-                position: 'fixed',
-                'z-index': 1000,
-                left: '50%', top: '50%',
-                margin: '-320px 0 0 -320px'
-              })
-              .click(function(){
-                $('html').removeClass('blocked');
-                $(this).remove();
-              })
-        $('body').append($photo);
-        $('html').addClass('blocked');
-        $('html').data('curtain-click', '.photo-enlarged')
-    })
+    var user = false;
+    {% if request.user.is_authenticated %}
+        user = {
+            success: true,
+            name: '{{ request.user.get_full_name }}',
+            id: '{{ request.user.username }}',
+            userpic: '{{ request.user.get_userpic }}',
+            email: '{{ request.user.email }}'
+        };
+    {% endif %}
+    preload([], function() {
+        window.Comments.prototype.onAuth = function(user) {
+            window.BottleExperiment.prototype.onAuth(user)
+        }
+        var b = new BottleExperiment('.wrapper-experiment', user);
+    });
+    /*
+        TODO REFACTOR
+        function simulate_results() {
+            $('.experiment-one').removeClass('experiment-one-state-start').addClass('experiment-one-state-results');
+        }
+        function simulate() {
+            var $e = $('.experiment-one');
+            var animation_time = 0;
+            var animation = [
+                ['start', 0], 
+                ['incoming', 750], 
+                ['open', 250, 
+                    function($context) { $context.find('.bottle').addClass('bottle-empty').removeClass('bottle-full') }],
+                ['enlarge', 750, function($context) { 
+                    $context.find('.photo').addClass('photo-rotate-'+parseInt(Math.random()*6+1)) }],
+                ['upload']
+            ];
+            var prefix = 'experiment-one-state-';
+            for (var i=0; i<animation.length; i++) {
+                (function(){
+                    var this_state = animation[i];
+                    var next_state = (i+1 == animation.length) ? false : animation[i+1];
+                    animation_time += this_state[1];
+                    if (next_state) setTimeout(function(){
+                        $e.removeClass(prefix+this_state[0]).addClass(prefix+next_state[0]);
+                        if (next_state[2]) next_state[2]($e);
+                    }, animation_time)
+                })();
+            }
+        }
+        simulate();
+        $('.curtain').click(function(){ $($('html').data('curtain-click')).click(); })
+        $('.photo-enlarged').click
+        $('.wrapper-experiment').on('click', '.experiment-one-results .photo', function(){
+            var $photo = $('<div class="photo">'+$(this).html()+'</div>');
+            $photo.addClass('photo-enlarged')
+                  .css({
+                    position: 'fixed',
+                    'z-index': 1000,
+                    left: '50%', top: '50%',
+                    margin: '-320px 0 0 -320px'
+                  })
+                  .click(function(){
+                    $('html').removeClass('blocked');
+                    $(this).remove();
+                  })
+            $('body').append($photo);
+            $('html').addClass('blocked');
+            $('html').data('curtain-click', '.photo-enlarged')
+        })
+    */
 </script>
 {% endblock  %}
