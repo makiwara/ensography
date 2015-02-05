@@ -1,11 +1,12 @@
 window.BottleExperiment = function(container, user) {
     this.$ = $(container);
+    window.BottleExperiment.prototype._.push(this);
     window.BottleExperiment.prototype.user = { success: false }; // name, id, email
     if (user) window.BottleExperiment.prototype.onAuth(user);
     this.view_render();
 }
 window.BottleExperiment.prototype = {
-
+    _ : [],
     // MODEL =======================================================================
     // MODEL =======================================================================
     // MODEL =======================================================================
@@ -19,14 +20,13 @@ window.BottleExperiment.prototype = {
     // CONTROLLERS ================================================================
     // CONTROLLERS ================================================================
     // CONTROLLERS ================================================================
-    onAuth: function(user) {
+    onAuth: function(user) { 
         window.BottleExperiment.prototype.user = user;
-        if (this._rendered) {
+        for (var i=0; i<window.BottleExperiment.prototype._.length; i++)
             if (window.BottleExperiment.prototype.user.success) 
-                this.view_authSuccess();
+                window.BottleExperiment.prototype._[i].view_authSuccess();
             else
-                this.view_authFailure();
-        }
+                window.BottleExperiment.prototype._[i].view_authFailure();
     },
     onNext: function() {
         // TODO serverside for this handle
@@ -50,17 +50,21 @@ window.BottleExperiment.prototype = {
     // VIEWS ======================================================================
     tick: 250, // animation tick = 0.25s
     view_authFailure: function() {
-        $('.experiment-auth').show().css({opacity:1})
-        $('.experiment-auth-complete').hide().css({opacity:0})
+        if (!this._rendered) return;
+        this.$.find('.experiment-auth').show().css({opacity:1})
+        this.$.find('.experiment-auth-complete').hide().css({opacity:0})
     },
     view_authSuccess: function() {
+        if (!this._rendered) return;
         var that = this;
-        $('.experiment-auth').css({opacity:0})
+        this.$.find('.experiment-auth').css({opacity:0})
         setTimeout(function(){
-            $('.experiment-auth').hide();
-            $('.experiment-auth-complete').show().css({opacity:1})
+            that.$.find('.experiment-auth').hide();
+            that.$.find('.experiment-auth-complete').show().css({opacity:1})
         }, this.tick);
-        setTimeout(function(){ that.onNext(); }, this.tick*2);
+        setTimeout(function(){ 
+            that.onNext(); 
+        }, this.tick*2);
     },
     _rendered: false,
     view_render: function() {
