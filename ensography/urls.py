@@ -25,6 +25,7 @@ urlpatterns = patterns('',
     url('', include('social.apps.django_app.urls', namespace='social')),
     url(r'^comments/', include('comments.urls')),
     url(r'^bottle/', include('bottle.urls')),
+    url(r'^admin/', include(admin.site.urls)),
 )
 
 

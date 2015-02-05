@@ -5,7 +5,7 @@
 ## BOTTLE
 [x] static design for experiment
 [-] image uploader:
-    [ ] set up admin UI
+    [x] set up admin UI
     [ ] multi-part form
     [ ] upload file
     [ ] signal to redraw from iframe
