@@ -29,7 +29,6 @@
         </style>
     </head>
     <body>
-        <!-- TODO employ multi-part form -->
         <div class="upload">
             <div class="chrome-text-typeface">
                 <p>
@@ -46,10 +45,13 @@
                         Choose wisely.
                     {% endif %}
                 </p>
-                {% if is_question %}
-                    <input type="hidden" name="question" value="{{pk}}">
-                {% endif %}
-                <input type="file" name="photo" >
+                <form id="upload-form" action="/bottle/upload/" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% if is_question %}
+                        <input type="hidden" name="pk" value="{{pk}}">
+                    {% endif %}
+                    <input type="file" name="photo" >
+                </form>
             </div>
             <div class="icon icon--send clearfix icon-always-visible-label">
                 <div class="icon-img icon-static"></div>
@@ -58,5 +60,10 @@
         </div>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="/static/js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+        <script type="text/javascript">
+            $('.icon').click(function(){
+                $('#upload-form').submit();
+            })
+        </script>
     </body>
 </html>

@@ -43,7 +43,7 @@ html, body { height: auto; overflow: auto;}
 
 /* ---- Upload photo answer ---- */
 .experiment-one {
-    margin: 0 -96px;   
+    margin: 0 -96px 64px;   
 }
 .experiment-one .photo img { width: 320px; height: 320px; display: block }
 .experiment-one iframe {
@@ -77,7 +77,7 @@ html, body { height: auto; overflow: auto;}
 .experiment-one-state-incoming iframe,
 .experiment-one-state-open     iframe { opacity: 0 }
 .experiment-one-state-incoming .experiment-photo { opacity: 0; border-left: 0 }
-.experiment-one-state-incoming .experiment-photo img { width: 1px; height: 1px; visibility: hidden; }
+.experiment-one-state-incoming .experiment-photo .photo-image { width: 1px; height: 1px; visibility: hidden; }
 .experiment-one-state-incoming .experiment-photo {
     margin-left: -40px;
     margin-top:  100px;
@@ -89,7 +89,7 @@ html, body { height: auto; overflow: auto;}
     margin-top: 60px;
     transition: all .25s ease-out;
 }
-.experiment-one-state-open .experiment-photo img { width: 1px; height: 1px; visibility: hidden; }
+.experiment-one-state-open .experiment-photo .photo-image { width: 1px; height: 1px; visibility: hidden; }
 /* ----- */
 .experiment-one-state-upload .experiment-photo,
 .experiment-one-state-enlarge .experiment-photo { 
@@ -98,8 +98,8 @@ html, body { height: auto; overflow: auto;}
     margin-top: 0;
     transition: all .25s ease-out;
 }
-.experiment-one-state-upload .experiment-photo img,
-.experiment-one-state-enlarge .experiment-photo img { 
+.experiment-one-state-upload .experiment-photo .photo-image,
+.experiment-one-state-enlarge .experiment-photo .photo-image { 
     width: 320px; height: 320px; 
     transition: all .25s ease-out;
 }
@@ -125,12 +125,13 @@ html, body { height: auto; overflow: auto;}
     transition: all .25s ease-out;
     border: 5px solid #ffffff;
 }
-.experiment-one-state-results .experiment-photo img { 
+.experiment-one-state-results .experiment-photo .photo-image { 
     width: 160px; height: 160px; 
     transition: all .25s ease-out;
 }
 .experiment-one-state-results .experiment-one-results {
     opacity: 1;
+    display: block;
     transition: all .25s ease-out;
 }
 /* --- */
@@ -138,27 +139,36 @@ html, body { height: auto; overflow: auto;}
 /* ---- Styles to display photo results ---- */
 .experiment-one-results {
     opacity: 0;
+    display: none;
     min-height: 320px;
     margin-left: 60px;
 }
 .experiment-one-results .photo {
     position: inherit;
     float: left;
-    margin: 0 10px 10px 0;
+    margin: 78px 88px 88px 78px;
     border: 5px solid #ffffff;
-    transition: none;
+    transition: all .25s ease-out;
 }
-.experiment-one-results .photo img {
+.experiment-one-results .photo .photo-image {
+    width: 2px; height: 2px;
+    background-size: cover;
+}
+.experiment-one-results .experiment-one-results-loaded {
+    margin: 0 10px 10px 0;
+}
+.experiment-one-results .experiment-one-results-loaded .photo-image {
     width: 160px; height: 160px;
-    transition: none;
+    background-size: cover;   
+    transition: all .25s ease-out;
 }
-.experiment-one-results .photo-enlarged {
+.photo-enlarged {
     position: relative;
     z-index: 1000;
     margin: -165px -155px -155px -165px;
     border: 10px solid #ffffff;
 }
-.experiment-one-results .photo-enlarged img {
+.photo-enlarged .photo-image {
     width: 480px; height: 480px;
 }
 .experiment-one-results .photo:nth-child(4n)   { transform: rotate( 1.0deg); }
@@ -191,4 +201,10 @@ html, body { height: auto; overflow: auto;}
 .experiment-add .bottle {
     transform: rotate(45deg);
     margin: 30px 0 0 200px;
+}
+/* ---- Finished state ---- */
+.experiment-done {
+    display: none;
+    opacity: 0;
+    transition: all .25s ease-out;
 }

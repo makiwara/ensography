@@ -39,17 +39,37 @@
         </div>
     </div>
     <div class="experiment-auth-complete">
-        <div class="userpic userpic-nyaremko"></div>
+        <div class="userpic js-experiment-auth-userpic"></div>
         <div class="chrome-text-typeface">
-            <p><strong>Welcome, Nikolay Yaremko!</strong></p>
+            <p><strong>Welcome, <span class="js-experiment-auth-name">Nikolay Yaremko</span>!</strong></p>
             <p>
                 You will see a photograph below. Please upload your photo-answer accordingly, and you will see collected
                 works of whole research group. Proceed to the next photograph, and so on, and so on, and on and on. And on.
             </p>
         </div>
     </div>
+    <div class="experiment-done">
+        <div class="chrome-text-typeface">
+            <p><strong>Thank you!</strong></p>
+            <p>
+                We are very grateful for your contribution. 
+                The conjoined results of this experiment will be published in the main body of the research soon.
+                We will contact you once it would be ready to gather feedback and your opinions.
+            </p>
+        </div>
+    </div>
+
 </div>
 
+<div class="brick64"></div>
+<div class="brick64"></div>
+<div class="brick64"></div>
+<div class="brick64"></div>
+<div class="brick64"></div>
+<div class="brick64"></div>
+<div class="brick64"></div>
+<div class="brick64"></div>
+<div class="brick64"></div>
 <div class="brick64"></div>
 <div class="brick64"></div>
 <div class="brick64"></div>
@@ -73,11 +93,5 @@
         }
         var b = new BottleExperiment('.wrapper-experiment', user);
     });
-    /*
-        TODO REFACTOR
-        function simulate_results() {
-            $('.experiment-one').removeClass('experiment-one-state-start').addClass('experiment-one-state-results');
-        }
-    */
 </script>
 {% endblock  %}

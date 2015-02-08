@@ -13,7 +13,7 @@ window.BottleExperiment.prototype = {
     // MODEL =======================================================================
     // MODEL =======================================================================
     _pk: 0,
-
+    _isQuestion: false,
 
 
     // CONTROLLERS ================================================================
@@ -28,15 +28,45 @@ window.BottleExperiment.prototype = {
             else
                 window.BottleExperiment.prototype._[i].view_authFailure();
     },
+
+    OnIframeQuestion: function() {
+        for (var i=0; i<window.BottleExperiment.prototype._.length; i++)
+            if (window.BottleExperiment.prototype._[i]._isQuestion) {
+                var that = window.BottleExperiment.prototype._[i];
+                that.view_finalize();
+            }
+    },
+    OnIframeAnswer: function(data) { 
+        for (var i=0; i<window.BottleExperiment.prototype._.length; i++) {
+            var that = window.BottleExperiment.prototype._[i];
+            that.$.find('.experiment-one').each(function(){
+                if ($(this).data('id') == data.pk) {
+                    var $this = $(this);
+                    that.view_hideIframe(this);
+                    $.ajax({
+                        url: '/bottle/results/',
+                        dataType: 'json',
+                        data: { pk: data.pk },
+                        success: function(data) {
+                            that.view_appendResults(data.results, $this, function(){
+                                that.onNext();
+                            });
+                        }
+                    })
+                }
+            })
+        }        
+    },
+    // non-static controllers -----------------------------------------------------
     onNext: function() {
-        // TODO serverside for this handle
         var that = this;
         $.ajax({
             url: '/bottle/next/',
             dataType: 'json',
             data: { pk: this.pk },
             success: function(data) {
-                if (data.pk) that.pk = data.pk;
+                if (data.pk) { that.pk = data.pk; that._isQuestion = false; }
+                else that._isQuestion = true;
                 that.view_append(data.html);
             }
         })
@@ -57,6 +87,10 @@ window.BottleExperiment.prototype = {
     view_authSuccess: function() {
         if (!this._rendered) return;
         var that = this;
+        this.$.find('.js-experiment-auth-userpic').css({
+            'background-image' : 'url('+window.BottleExperiment.prototype.user.userpic+')'
+        })
+        this.$.find('.js-experiment-auth-name').html(window.BottleExperiment.prototype.user.name)
         this.$.find('.experiment-auth').css({opacity:0})
         setTimeout(function(){
             that.$.find('.experiment-auth').hide();
@@ -83,7 +117,12 @@ window.BottleExperiment.prototype = {
     view_bind: function() {
         $('.curtain').click(function(){ $($('html').data('curtain-click')).click(); })
         this.$.on('click', '.experiment-one-results .photo', function() {
-            var $photo = $('<div class="photo">'+$(this).html()+'</div>');
+            $.ajax({
+                url: '/bottle/stat/',
+                dataType: 'json',
+                data: { answer: $(this).data('answer') }
+            })
+            var $photo = $('<div class="photo experiment-one-results-loaded">'+$(this).html()+'</div>');
             $photo.addClass('photo-enlarged')
                   .css({
                     position: 'fixed',
@@ -113,6 +152,10 @@ window.BottleExperiment.prototype = {
         this.$.append($html);
         this.view_animate($html);
     },
+    view_finalize: function() {
+        this.$.find('.experiment-add').remove();
+        this.$.find('.experiment-done').appendTo(this.$).show().css({opacity:1});
+    },
     view_animate: function($e) {
         if (!$e.hasClass('experiment-one')) return $e.css({opacity:1});
         var animation_time = 0;
@@ -137,6 +180,35 @@ window.BottleExperiment.prototype = {
                 }, animation_time)
             })();
         }
+    },
+    view_hideIframe: function(container) {
+        $(container).find('iframe').hide();
+    },
+    view_appendResults: function(results, $this, callback) {
+        var pos = 0;
+        var that = this;
+        var $results = $this.find('.experiment-one-results');
+        that.$.find('.experiment-one-state-upload')
+            .removeClass('experiment-one-state-upload')
+            .addClass('experiment-one-state-results');
+        if (results.length < 5) 
+            $results.append($('<div>').addClass('experiment-one-results-pan'));
+        function add_one() {
+            if (pos >= results.length) return callback();
+            var pk  = results[pos].pk;
+            var url = results[pos].url;
+            pos++
+            if (url != "") {
+                $([url]).preload(function(){
+                    var $img = $('<div>').addClass('photo').data('answer', pk);
+                    $img.append($('<div>').addClass('photo-image').css({ 'background-image' : 'url('+url+')' }));
+                    $results.append($img);
+                    setTimeout(function(){ $img.addClass('experiment-one-results-loaded') }, 1)                
+                    setTimeout(add_one, that.tick);    
+                }) 
+            } else add_one();
+        }
+        add_one();
     },
 
 

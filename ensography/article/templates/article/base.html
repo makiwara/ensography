@@ -142,7 +142,7 @@ function preload(p, optional_callback) {
     $('body, .paper-sheet, .userpic, .icon-img, .chrome-demo-iphone, .photo-image').each(push_bg);
     function simplify(p) {
         var pp = [];
-        function add_pp(x) { if (pp.indexOf(x) < 0) pp.push(x) }
+        function add_pp(x) { if (pp.indexOf(x) < 0 && x!='none') pp.push(x) }
         p.map(add_pp);
         return pp;
     }

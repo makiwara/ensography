@@ -30,4 +30,11 @@ class Answer(models.Model):
     active = models.IntegerField(default=0)
     dt_created = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return "%i: %s" % (self.pk, self.url)
+
+class ViewStat(models.Model):
+    answer = models.ForeignKey(Answer)
+    user = models.ForeignKey(User)
+    dt_created = models.DateTimeField(auto_now_add=True)
 
