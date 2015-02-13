@@ -13,6 +13,7 @@ $(function(){
         $('.crystallize-library-selected').removeClass('crystallize-library-selected');
         $(this).addClass('crystallize-library-selected');
         $(this).parent().parent().find('.crystallize-wrapper img').attr('src', $(this).attr('src'));
+        if (ga) ga('send', 'event', 'crystalgram', 'choose');
         recrystallize();
     })
     $('.crystallize-wrapper').click(function(){
@@ -50,6 +51,7 @@ $(function(){
     var timeout;
 
     function decrystallize() {
+        if (ga) ga('send', 'event', 'crystalgram', 'decrystallize');
         clearTimeout(timeout)
         $('.crystal-img').remove()
         animate = false;

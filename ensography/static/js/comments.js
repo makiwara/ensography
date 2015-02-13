@@ -66,7 +66,7 @@ window.Comments.prototype = {
     // CONTROLLERS ================================================================
     // CONTROLLERS ================================================================
     onSentComment: function(comment) {
-        console.log('comment return')
+        if (ga) ga('send', 'event', 'comments', 'add');
         this.data.push(comment);
         this.view_addComment(comment);
         this.view_activate();
@@ -74,6 +74,7 @@ window.Comments.prototype = {
         this.view_focusOnTheFirstComment();      
     },
     onSentReply: function(reply) {
+        if (ga) ga('send', 'event', 'comments', 'reply');
         this.data_updateCommentWithReply(reply.comment_id, reply);
         this.view_addReply(reply);
         this.view_activate();
@@ -85,6 +86,7 @@ window.Comments.prototype = {
         this.view_renderComments();
     },
     onAuth: function(user) {
+        if (ga) ga('send', 'event', 'profile', 'auth');
         window.Comments.prototype.user = user;
         if (window.Comments.prototype.user.success) 
             this.view_authSuccess();

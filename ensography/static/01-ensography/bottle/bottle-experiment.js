@@ -21,6 +21,7 @@ window.BottleExperiment.prototype = {
     // CONTROLLERS ================================================================
     // CONTROLLERS ================================================================
     onAuth: function(user) { 
+        if (ga) ga('send', 'event', 'profile', 'auth');
         window.BottleExperiment.prototype.user = user;
         for (var i=0; i<window.BottleExperiment.prototype._.length; i++)
             if (window.BottleExperiment.prototype.user.success) 
@@ -67,6 +68,7 @@ window.BottleExperiment.prototype = {
             success: function(data) {
                 if (data.pk) { that.pk = data.pk; that._isQuestion = false; }
                 else that._isQuestion = true;
+                if (ga) ga('send', 'event', 'bottle-experiment', 'next');
                 that.view_append(data.html);
             }
         })

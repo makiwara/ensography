@@ -158,6 +158,7 @@ window.Crystalgram = {
         if (this.states[this.state].on)
             this.states[this.state].on(this);
         this.patch_info();            
+        if (ga) ga('send', 'event', 'crystalgram', 'state');
     },
     prev_state: function( newState, undef ) {
         if (newState == undef)
@@ -170,6 +171,7 @@ window.Crystalgram = {
         this.$.find('.demo-state-active').removeClass('demo-state-active');
         this.$.find('.crystalgram-state-'+this.state).addClass('demo-state-active');
         this.patch_info();
+        if (ga) ga('send', 'event', 'crystalgram', 'state');
     }, 
     patch_info: function() {
         this.$.find('.chrome-demo-text-1')
