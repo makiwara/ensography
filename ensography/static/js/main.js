@@ -9,11 +9,12 @@ function show_tooltips() {
 }
 
 // Tiny preloader plugin
-$.fn.preload = function(callback) {      
+$.fn.preload = function(callback) {
     var i=0, that = this;
     var increment = function() { if (++i >= that.length) return callback(that); }
-    for (var j=0; j<that.length; j++)
+    for (var j=0; j<that.length; j++) {
         $('<img/>').load(increment)[0].src = that[j];
+    }
 };
 
 // Django CSRF support
@@ -27,7 +28,7 @@ $(function(){
     $('.auto-comments').each(function(){
         new window.Comments(this, $(this).data('tag'), this.title)
     })
-    
+
 
     // GENERIC CHROME SCRIPTS -----------------------------------------------
     // GENERIC CHROME SCRIPTS -----------------------------------------------
@@ -82,7 +83,7 @@ $(function(){
                     setTimeout(function(){ $that.removeClass('photo-flipped') }, 20*count++)
                 })
         }, 1)
-        
+
     })
 
     // COMMENTS SCRIPTS -------------------------------------------------------
@@ -97,7 +98,7 @@ $(function(){
         }).removeClass('comments-pile-1 comments-pile-2 comments-pile-3');
         $comments.find('.comments-host-middle .comments-sheet')
             .css({
-                'margin-left': -704, 
+                'margin-left': -704,
                 'opacity': 0.5,
             })
             .find('.comments-comments').hide()
@@ -123,7 +124,7 @@ $(function(){
         }).removeClass('comments-pile-1 comments-pile-2 comments-pile-3');
         $comments.find('.comments-host-middle .comments-sheet')
             .css({
-                'margin-left': 704,        
+                'margin-left': 704,
                 'opacity': 0.5,
             })
             .find('.comments-comments').hide()

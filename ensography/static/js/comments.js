@@ -71,7 +71,7 @@ window.Comments.prototype = {
         this.view_addComment(comment);
         this.view_activate();
         this.view_clearComment();
-        this.view_focusOnTheFirstComment();      
+        this.view_focusOnTheFirstComment();
     },
     onSentReply: function(reply) {
         if (ga) ga('send', 'event', 'comments', 'reply');
@@ -88,7 +88,7 @@ window.Comments.prototype = {
     onAuth: function(user) {
         if (ga) ga('send', 'event', 'profile', 'auth');
         window.Comments.prototype.user = user;
-        if (window.Comments.prototype.user.success) 
+        if (window.Comments.prototype.user.success)
             this.view_authSuccess();
         else
             this.view_authFailure();
@@ -133,7 +133,7 @@ window.Comments.prototype = {
         $('.comments-area .userpic').show().css({
             'background-image' : 'url('+window.Comments.prototype.user.userpic+')'
         })
-        // focus on single textarea 
+        // focus on single textarea
         if (window.Comments.prototype.authSource) {
             var that = window.Comments.prototype.authSource;
             var isFocus = false;
@@ -153,7 +153,7 @@ window.Comments.prototype = {
         }
     },
     view_renderComments: function() {
-        for (var i=0; i<this.data.length; i++) 
+        for (var i=0; i<this.data.length; i++)
             this.view_addComment(this.data[i]);
     },
     view_addReply: function(reply) {
@@ -296,14 +296,14 @@ window.Comments.prototype = {
             return true;
         })
         this.$.find('.comments-reply-sheet textarea')
-            .focus(function(){ 
+            .focus(function(){
                 $(this).addClass('m-comments-reply-sheet-focus');
                 $(this).parent().next().css({opacity:1}); show_tooltips(); })
-            .blur(function(){  
+            .blur(function(){
                 var $this = $(this);
                 setTimeout(function(){
                     $this.removeClass('m-comments-reply-sheet-focus')
-                         .parent().next().css({opacity:0}) 
+                         .parent().next().css({opacity:0})
                 }, 500);
             })
         this.$.find('.icon')
@@ -315,7 +315,7 @@ window.Comments.prototype = {
                 is_done = true;
                 $(this).click();
             })
-            if (is_done && $(this).parents('.control-expandable').hasClass('control-expanded')) 
+            if (is_done && $(this).parents('.control-expandable').hasClass('control-expanded'))
                 $(this).data('skip-click', true);
         })
         this.$.find('.js-comments-control-textarea').click(function(e){
@@ -324,7 +324,7 @@ window.Comments.prototype = {
                 is_done = true;
                 $(this).click();
             })
-            if (is_done && $(this).parents('.control-expandable').hasClass('control-expanded')) 
+            if (is_done && $(this).parents('.control-expandable').hasClass('control-expanded'))
                 $(this).data('skip-click', true);
         })
     },

@@ -36,11 +36,11 @@
     height: 100%;
     width: 100%;
     padding-left: 50%;
-} 
-.hgrid { 
+}
+.hgrid {
     position: absolute;
     padding:  0;
-}   
+}
 .grid-wrap {
     margin-left: -512px;
     height: 100%;
@@ -136,7 +136,8 @@
 window.preloadReady = false;
 function preload(p, optional_callback) {
     if (!p) p = [];
-    function push_bg()  { p.push($(this).css('background-image').replace(/^url\((.*)\)$/, "$1")) };
+    function push_bg()  { p.push($(this).css('background-image').replace(/^url\((\")(.*)(\")\)$/, "$2"))
+    };
     function push_src() { p.push(this.src) };
     $('img').each(push_src);
     $('body, .paper-sheet, .userpic, .icon-img, .chrome-demo-iphone, .photo-image').each(push_bg);
@@ -151,7 +152,7 @@ function preload(p, optional_callback) {
         $('.loader').css({opacity:0})
         setTimeout(function(){ $('.loader').hide() }, 250);
         if (optional_callback) optional_callback();
-    })       
+    })
 }
 
 </script>
@@ -190,7 +191,7 @@ function preload(p, optional_callback) {
           })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
           ga('create', 'UA-59754104-1', 'auto');
           ga('send', 'pageview');
-        </script>        
+        </script>
         {% block jquery %}
         {% endblock  %}
 
